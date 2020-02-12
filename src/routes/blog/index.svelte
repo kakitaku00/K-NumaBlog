@@ -1,8 +1,11 @@
 <script context="module">
+	import microApi from '../../api/index';
+
 	export function preload({ params, query }) {
-		return this.fetch(`blog.json`).then(r => r.json()).then(posts => {
+		return microApi.get('/blog').then(res => {
+			let posts = res.data.contents
 			return { posts };
-		});
+		})
 	}
 </script>
 
@@ -29,6 +32,7 @@
 				tell Sapper to load the data for the page as soon as
 				the user hovers over the link or taps it, instead of
 				waiting for the 'click' event -->
-		<li><a rel='prefetch' href='blog/{post.slug}'>{post.title}</a></li>
+		<!-- <li><a rel='prefetch' href='blog/{post.slug}'>{post.title}</a></li> -->
+		<li><a rel='prefetch' href='.'>{post.title}</a></li>
 	{/each}
 </ul>
