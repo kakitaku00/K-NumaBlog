@@ -31,6 +31,8 @@ However you get the code, you can install dependencies and run the project in de
 cd my-app
 npm install # or yarn
 npm run dev
+&
+npm run watch:tailwind
 ```
 
 Open up [localhost:3000](http://localhost:3000) and start clicking around.
