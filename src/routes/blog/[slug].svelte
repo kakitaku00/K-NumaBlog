@@ -19,6 +19,7 @@
 	import marked from 'marked';
 	import hljs from 'highlight.js';
 	import { onMount } from 'svelte'
+	import { goto } from '@sapper/app'
 
 	export let post;
 	let contents = "";

@@ -33,6 +33,7 @@
 				the user hovers over the link or taps it, instead of
 				waiting for the 'click' event -->
 		<!-- <li><a rel='prefetch' href='blog/{post.slug}'>{post.title}</a></li> -->
-		<li><a rel='prefetch' href={`/blog/${post.id}`}>{post.title}</a></li>
+		<!-- TODO: 二回クリックしないと目次が機能しないので#をつける -->
+		<li><a rel='prefetch' href={`/blog/${post.id}/#`}>{post.title}</a></li>
 	{/each}
 </ul>
