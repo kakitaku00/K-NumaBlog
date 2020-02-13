@@ -1,10 +1,10 @@
 <script context="module">
+	import microApi from '../../api/index';
 	export async function preload({ params, query }) {
 		// the `slug` parameter is available because
 		// this file is called [slug].svelte
-		const res = await this.fetch(`blog/${params.slug}.json`);
-		const data = await res.json();
-
+		const res = await microApi.get(`blog/${params.slug}`).then(res => res);
+		const data = await res.data;
 		if (res.status === 200) {
 			return { post: data };
 		} else {
@@ -60,5 +60,5 @@
 <h1>{post.title}</h1>
 
 <div class='content'>
-	{@html post.html}
+	{@html post.body}
 </div>
