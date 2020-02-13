@@ -15,8 +15,11 @@
 
 <script>
 	import "../../../node_modules/github-markdown-css/github-markdown.css";
+	import marked from 'marked';
 
 	export let post;
+
+	let postBody = marked(post.body || 'テキストがありません');
 </script>
 
 <style>
@@ -62,9 +65,5 @@
 <h1>{post.title}</h1>
 
 <div class='content markdown-body'>
-	{@html post.body }
-
-	<ul>
-		<li>1</li>
-	</ul>
+	{@html postBody}
 </div>
