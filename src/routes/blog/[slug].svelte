@@ -22,16 +22,23 @@
 
 	export let post;
 	let contents = "";
+	let heading = "";
 
 	marked.setOptions({
 		langPrefix: '',
 		highlight: (code, lang) => {
 			return hljs.highlightAuto(code, [lang]).value
-		},
+		}
 	});
 
-	onMount(() => {
-		contents = marked(post.body);
+	function createHeadingList (postBody) {
+		const headingList = postBody.match(/^##\s.*\s|\s##\s.*\s|\s##\s.*$/g);
+		return headingList.map(h => h.replace(/\n|\s|#/g, ''));
+	}
+
+	onMount(async () => {
+		contents = await marked(post.body);
+		heading = await createHeadingList(post.body);
 	})
 </script>
 
@@ -75,8 +82,15 @@
 	<title>{post.title}</title>
 </svelte:head>
 
-<h1>{post.title}</h1>
-
-<div class='content markdown-body'>
-	{@html contents}
+<div class="content">
+	<h1>{post.title}</h1>
+	<div class="heading">
+		{#each heading as head}
+			 <div class="heading-list"><a href={`/blog/${post.id}/#${head}`} class="heading-item">{head}</a></div>
+		{/each}
+	</div>
+	<div class='markdown-body'>
+		{@html contents}
+	</div>
 </div>
+
