@@ -15,11 +15,24 @@
 
 <script>
 	import "../../../node_modules/github-markdown-css/github-markdown.css";
+	import "../../../node_modules/highlight.js/styles/zenburn.css"
 	import marked from 'marked';
+	import hljs from 'highlight.js';
+	import { onMount } from 'svelte'
 
 	export let post;
+	let contents = "";
 
-	let postBody = marked(post.body || 'テキストがありません');
+	marked.setOptions({
+		langPrefix: '',
+		highlight: (code, lang) => {
+			return hljs.highlightAuto(code, [lang]).value
+		},
+	});
+
+	onMount(() => {
+		contents = marked(post.body);
+	})
 </script>
 
 <style>
@@ -65,5 +78,5 @@
 <h1>{post.title}</h1>
 
 <div class='content markdown-body'>
-	{@html postBody}
+	{@html contents}
 </div>
