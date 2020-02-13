@@ -14,6 +14,8 @@
 </script>
 
 <script>
+	import "../../../node_modules/github-markdown-css/github-markdown.css";
+
 	export let post;
 </script>
 
@@ -26,7 +28,7 @@
 		so we have to use the :global(...) modifier to target
 		all elements inside .content
 	*/
-	.content :global(h2) {
+	/* .content :global(h2) {
 		font-size: 1.4em;
 		font-weight: 500;
 	}
@@ -50,6 +52,13 @@
 
 	.content :global(li) {
 		margin: 0 0 0.5em 0;
+	} */
+	.markdown-body ul {
+		list-style: disc;
+	}
+
+	.markdown-body ol {
+		list-style: decimal;
 	}
 </style>
 
@@ -59,6 +68,6 @@
 
 <h1>{post.title}</h1>
 
-<div class='content'>
-	{@html post.body}
+<div class='content markdown-body'>
+	{@html post.body }
 </div>

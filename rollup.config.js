@@ -3,6 +3,7 @@ import replace from '@rollup/plugin-replace';
 import commonjs from '@rollup/plugin-commonjs';
 import svelte from 'rollup-plugin-svelte';
 import babel from 'rollup-plugin-babel';
+import css from "rollup-plugin-css-only";
 import { terser } from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
@@ -44,6 +45,9 @@ export default {
 				dev,
 				hydratable: true,
 				emitCss: true
+			}),
+			css({
+				output: 'static/markdown.css'
 			}),
 			resolve({
 				browser: true,
