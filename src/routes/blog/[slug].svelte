@@ -53,13 +53,6 @@
 	.content :global(li) {
 		margin: 0 0 0.5em 0;
 	} */
-	.markdown-body ul {
-		list-style: disc;
-	}
-
-	.markdown-body ol {
-		list-style: decimal;
-	}
 </style>
 
 <svelte:head>
@@ -70,4 +63,8 @@
 
 <div class='content markdown-body'>
 	{@html post.body }
+
+	<ul>
+		<li>1</li>
+	</ul>
 </div>
