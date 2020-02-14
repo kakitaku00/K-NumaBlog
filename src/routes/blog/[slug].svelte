@@ -36,15 +36,20 @@
 	let toc = []
 	let anchorIndex = [0, 0];
 
-	marked.setOptions({
-		langPrefix: '',
-		highlight: (code, lang) => {
-			return hljs.highlightAuto(code, [lang]).value
-		}
-	});
+	function compileMarkdown() {
+		marked.setOptions({
+			langPrefix: '',
+			highlight: (code, lang) => {
+				return hljs.highlightAuto(code, [lang]).value
+			}
+		});
 
+		contents = marked(post.body);
+	}
+
+	// FIXME: いらないかも
 	function getAnchorIndex(level) {
-		anchorIndex[level - 1] += 1
+		anchorIndex[level - 1] += 1;
 		for (var i = level; i < anchorIndex.length; i++) {
 			anchorIndex[i] = 0
 		}
@@ -53,12 +58,13 @@
 		)
 	}
 
-	function renderToc(contents) {
+	function createToc() {
 		let elements = contents.split(/\n/)
 		toc = elements.filter(el => el.match(/^<h[2-3]/)).map(el => {
 			const parser = new DOMParser();
 			const doc = parser.parseFromString(el, "text/xml").firstChild;
 			const tagLevel = doc.tagName.slice(1) - 1;
+			// FIXME: 別のクラスに変えてもいいかも
 			const index = getAnchorIndex(tagLevel);
 			const pageLink = doc.innerHTML.toLowerCase().replace(/\(|\)/g, '')
 			const list =  `<li class="${index}"><a href="/blog/${post.id}#${pageLink}" class="text-blue-500 hover:text-blue-800">${doc.innerHTML}</a></li>`
@@ -66,13 +72,13 @@
 		})
 	}
 
-	async function renderPost(post) {
-		contents = await marked(post.body);
-		await renderToc(contents)
+	async function renderPost() {
+		await compileMarkdown()
+		await createToc()
 	}
 
 	onMount(async () => {
-		await renderPost(post)
+		await renderPost()
 	})
 </script>
 
