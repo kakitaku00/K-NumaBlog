@@ -10,6 +10,8 @@
 </script>
 
 <script>
+	import { fade } from 'svelte/transition';
+
 	export let posts;
 </script>
 
@@ -24,16 +26,18 @@
 	<title>Blog</title>
 </svelte:head>
 
-<h1>Recent posts</h1>
+<div in:fade>
+	<h1>Recent posts</h1>
 
-<ul>
-	{#each posts as post}
-		<!-- we're using the non-standard `rel=prefetch` attribute to
-				tell Sapper to load the data for the page as soon as
-				the user hovers over the link or taps it, instead of
-				waiting for the 'click' event -->
-		<!-- <li><a rel='prefetch' href='blog/{post.slug}'>{post.title}</a></li> -->
-		<!-- TODO: 二回クリックしないと目次が機能しないので#をつける -->
-		<li><a rel='prefetch' href={`/blog/${post.id}/#`}>{post.title}</a></li>
-	{/each}
-</ul>
+	<ul>
+		{#each posts as post}
+			<!-- we're using the non-standard `rel=prefetch` attribute to
+					tell Sapper to load the data for the page as soon as
+					the user hovers over the link or taps it, instead of
+					waiting for the 'click' event -->
+			<!-- <li><a rel='prefetch' href='blog/{post.slug}'>{post.title}</a></li> -->
+			<!-- TODO: 二回クリックしないと目次が機能しないので#をつける -->
+			<li><a rel='prefetch' href={`/blog/${post.id}#`}>{post.title}</a></li>
+		{/each}
+	</ul>
+</div>

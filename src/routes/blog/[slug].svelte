@@ -26,8 +26,9 @@
 	import "../../../node_modules/highlight.js/styles/zenburn.css"
 	import marked from 'marked';
 	import hljs from 'highlight.js';
-	import { onMount } from 'svelte'
-	import { goto } from '@sapper/app'
+	import { onMount } from 'svelte';
+	import { fade } from 'svelte/transition';
+	import { goto } from '@sapper/app';
 
 	export let post;
 	let contents = "";
@@ -90,7 +91,7 @@
 	<title>{post.title}</title>
 </svelte:head>
 
-<div class="content">
+<div class="content" in:fade>
 	<h1 class="font-semibold">{post.title}</h1>
 	<div class="mb-4">
 		<h2>目次</h2>

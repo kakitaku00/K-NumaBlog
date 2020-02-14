@@ -1,3 +1,7 @@
+<script>
+	import { fade } from 'svelte/transition';
+</script>
+
 <style>
 	.post:nth-child(odd) {
 		margin-right: 2rem;
@@ -47,7 +51,7 @@
 
 <p class="mb-4"><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>
 
-<div class="flex mb-4">
+<div class="flex mb-4" in:fade>
   <div class="w-1/2 post">
 		<div class="w-full rounded overflow-hidden shadow-lg">
 			<img class="w-full" src="/card-top.jpg" alt="Sunset in the mountains">
