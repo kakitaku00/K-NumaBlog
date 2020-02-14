@@ -2,6 +2,14 @@
 	import microApi from '../../api/index';
 	export async function preload({ params, query }) {
 		// the `slug` parameter is available because
+		// // this file is called [slug].svelte
+		// const res = await microApi.get(`blog/${params.slug}`).then(res => res);
+		// const data = await res.data;
+		// if (res.status === 200) {
+		// 	return { post: data };
+		// } else {
+		// 	this.error(res.status, data.message);
+		// }
 		// this file is called [slug].svelte
 		const res = await microApi.get(`blog/${params.slug}`).then(res => res);
 		const data = await res.data;
@@ -23,7 +31,8 @@
 
 	export let post;
 	let contents = "";
-	let heading = "";
+	let toc = []
+	let anchorIndex = [0, 0];
 
 	marked.setOptions({
 		langPrefix: '',
@@ -32,18 +41,49 @@
 		}
 	});
 
-	function createHeadingList (postBody) {
-		const headingList = postBody.match(/^##\s.*\s|\s##\s.*\s|\s##\s.*$/g);
-		return headingList.map(h => h.replace(/\n|\s|#/g, ''));
+	function getAnchorIndex(level) {
+		anchorIndex[level - 1] += 1
+		for (var i = level; i < anchorIndex.length; i++) {
+			anchorIndex[i] = 0
+		}
+		return (
+			`index-${anchorIndex[0]}-${anchorIndex[1]}`
+		)
+	}
+
+	function renderToc(contents) {
+		let elements = contents.split(/\n/)
+		toc = elements.filter(el => el.match(/^<h[2-3]/)).map(el => {
+			const parser = new DOMParser();
+			const doc = parser.parseFromString(el, "text/xml").firstChild;
+			const tagLevel = doc.tagName.slice(1) - 1;
+			const index = getAnchorIndex(tagLevel);
+			const list =  `<li class="${index}"><a href="/blog/${post.id}#${doc.innerHTML.toLowerCase()}" class="text-blue-500 hover:text-blue-800">${doc.innerHTML}</a></li>`
+			return list
+		})
+	}
+
+	async function renderPost(post) {
+		contents = await marked(post.body);
+		await renderToc(contents)
 	}
 
 	onMount(async () => {
-		contents = await marked(post.body);
-		heading = await createHeadingList(post.body);
+		await renderPost(post)
 	})
 </script>
 
 <style>
+	.heading-list :global(li[class*="index"]) {
+		list-style-type: decimal;
+		margin: 0 0 .5rem 1.5rem;
+
+	}
+
+	.heading-list :global(li:not([class$="-0"])) {
+		list-style-type: disc;
+		margin-left: 3rem;
+	}
 </style>
 
 <svelte:head>
@@ -54,12 +94,13 @@
 	<h1 class="font-semibold">{post.title}</h1>
 	<div class="mb-4">
 		<h2>目次</h2>
-		{#each heading as head, index}
-			 <div class="heading-list"><a href={`/blog/${post.id}/#${head.toLowerCase()}`} class="text-blue-500 hover:text-blue-800">{index + 1}. {head}</a></div>
-		{/each}
+		<ul class="heading-list">
+			{#each toc as list}
+				{@html list}
+			{/each}
+		</ul>
 	</div>
 	<div class='markdown-body'>
 		{@html contents}
 	</div>
 </div>
-
