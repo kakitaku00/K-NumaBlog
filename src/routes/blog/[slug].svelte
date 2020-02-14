@@ -31,6 +31,7 @@
 	import { goto } from '@sapper/app';
 
 	export let post;
+
 	let contents = "";
 	let toc = []
 	let anchorIndex = [0, 0];
@@ -59,7 +60,8 @@
 			const doc = parser.parseFromString(el, "text/xml").firstChild;
 			const tagLevel = doc.tagName.slice(1) - 1;
 			const index = getAnchorIndex(tagLevel);
-			const list =  `<li class="${index}"><a href="/blog/${post.id}#${doc.innerHTML.toLowerCase()}" class="text-blue-500 hover:text-blue-800">${doc.innerHTML}</a></li>`
+			const pageLink = doc.innerHTML.toLowerCase().replace(/\(|\)/g, '')
+			const list =  `<li class="${index}"><a href="/blog/${post.id}#${pageLink}" class="text-blue-500 hover:text-blue-800">${doc.innerHTML}</a></li>`
 			return list
 		})
 	}
