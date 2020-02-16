@@ -16,10 +16,6 @@
 </script>
 
 <style>
-	ul {
-		margin: 0 0 1em 0;
-		line-height: 1.5;
-	}
 </style>
 
 <svelte:head>
@@ -27,17 +23,26 @@
 </svelte:head>
 
 <div in:fade>
-	<h1>Recent posts</h1>
-
-	<ul>
-		{#each posts as post}
-			<!-- we're using the non-standard `rel=prefetch` attribute to
-					tell Sapper to load the data for the page as soon as
-					the user hovers over the link or taps it, instead of
-					waiting for the 'click' event -->
-			<!-- <li><a rel='prefetch' href='blog/{post.slug}'>{post.title}</a></li> -->
-			<!-- TODO: 二回クリックしないと目次が機能しないので#をつける -->
-			<li><a rel='prefetch' href={`/blog/${post.id}#`}>{post.title}</a></li>
-		{/each}
-	</ul>
+	{#each posts as post}
+		<!-- we're using the non-standard `rel=prefetch` attribute to
+				tell Sapper to load the data for the page as soon as
+				the user hovers over the link or taps it, instead of
+				waiting for the 'click' event -->
+		<!-- <li><a rel='prefetch' href='blog/{post.slug}'>{post.title}</a></li> -->
+		<!-- TODO: 二回クリックしないと目次が機能しないので#をつける -->
+		<div class="w-full h-48 rounded overflow-hidden shadow-lg flex">
+			<div class="w-1/3 h-auto bg-cover" style="background-image: url({post.image.url})">
+			</div>
+			<!-- <img class="w-full" src={post.image.url} alt="thumbnail"> -->
+			<div class="w-2/3 flex flex-col">
+				<div class="px-6 py-4">
+					<div class="font-bold text-xl mb-2"><a rel='prefetch' href={`/blog/${post.id}#`}>{post.title}</a></div>
+				</div>
+				<div class="px-6 py-4 mt-auto flex justify-between">
+					<span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#photography</span>
+					<span class="inline-block text-gray-500">{post.createdAt.replace(/T.*Z/g, '')}</span>
+				</div>
+			</div>
+		</div>
+	{/each}
 </div>
