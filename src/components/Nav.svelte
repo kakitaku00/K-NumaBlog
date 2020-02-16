@@ -22,19 +22,22 @@
   </div>
   <div class="w-full hidden md:block flex-grow md:flex md:items-center md:w-auto">
     <div class="text-sm md:flex-grow">
-      <a href="." class:selected='{segment === undefined}' class="block mt-4 md:inline-block md:mt-0 text-teal-200 hover:text-white mr-4">
-        Home
+      <a href="." class:selected='{segment === undefined}' class="block mt-4 md:inline-block md:mt-0 text-teal-200 hover:text-white mr-4 transition duration-500">
+        ホーム
       </a>
-      <a href="profile" class:selected='{segment === "profile"}' class="block mt-4 md:inline-block md:mt-0 text-teal-200 hover:text-white mr-4">
-        Profile
+      <a href="profile" class:selected='{segment === "profile"}' class="block mt-4 md:inline-block md:mt-0 text-teal-200 hover:text-white mr-4 transition duration-500">
+        プロフィール
       </a>
-      <a href="blog" class:selected='{segment === "blog"}' class="block mt-4 md:inline-block md:mt-0 text-teal-200 hover:text-white mr-4">
-        Blog
+      <a href="blog" class:selected='{segment === "blog"}' class="block mt-4 md:inline-block md:mt-0 text-teal-200 hover:text-white mr-4 transition duration-500">
+        ブログ
+      </a>
+      <a href="created" class:selected='{segment === "created"}' class="block mt-4 md:inline-block md:mt-0 text-teal-200 hover:text-white mr-4 transition duration-500">
+        製作
       </a>
     </div>
     <div class="flex">
-      <a href="."><TwitterIcon styleClass="mr-4 w-6 h-6 fill-current text-white transition-opacity duration-200 hover:opacity-75"/></a>
-      <a href="."><GithubIcon styleClass="w-6 h-6 fill-current text-white transition-opacity duration-200 hover:opacity-75"/></a>
+      <a href="."><TwitterIcon styleClass="mr-4 w-6 h-6 fill-current text-white transition-opacity duration-500 hover:opacity-75"/></a>
+      <a href="."><GithubIcon styleClass="w-6 h-6 fill-current text-white transition-opacity duration-500 hover:opacity-75"/></a>
     </div>
   </div>
 </nav>
