@@ -22,7 +22,7 @@
   <div class="w-3/4">
 		<slot></slot>
 	</div>
-  <div class="w-1/4 bg-gray-400 h-12 ml-4">
+  <div class="w-1/4 bg-gray-400 h-12">
 	</div>
 </main>
 

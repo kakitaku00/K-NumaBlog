@@ -38,7 +38,7 @@
 				waiting for the 'click' event -->
 		<!-- <li><a rel='prefetch' href='blog/{post.slug}'>{post.title}</a></li> -->
 		<!-- TODO: 二回クリックしないと目次が機能しないので#をつける -->
-		<a rel='prefetch' href={`/blog/${post.id}#`} class="post w-full rounded overflow-hidden shadow-md flex hover:shadow-xl transition duration-500">
+		<a rel='prefetch' href={`/blog/${post.id}#`} class="post w-full mb-8 rounded overflow-hidden shadow-md flex hover:shadow-xl transition duration-500">
 			<div class="w-1/3 h-auto bg-cover" style="background-image: url({post.image.url})">
 			</div>
 			<!-- <img class="w-full" src={post.image.url} alt="thumbnail"> -->
