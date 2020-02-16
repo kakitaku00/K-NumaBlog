@@ -3,9 +3,10 @@
 </script>
 
 <svelte:head>
-	<title>Profile</title>
+	<title>プロフィール</title>
 </svelte:head>
 
 <div in:fade>
-	<h1>Profile this site</h1>
+	<h1>プロフィール</h1>
+	<p>Comming sooon ...</p>
 </div>

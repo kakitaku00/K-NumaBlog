@@ -47,11 +47,13 @@
 					<div class="font-bold text-xl mb-2">{post.title}</div>
 					<p class="truncate text-gray-500 text-sm">{post.body}</p>
 				</div>
-				<div class="px-6 py-4 mt-auto flex flex-wrap">
-					{#each post.category.split(',') as category}
-						<span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">{category}</span>
-					{/each}
-					<span class="ml-auto flex items-center text-gray-500 text-sm"><i class="material-icons text-sm mr-1">access_time</i>{post.createdAt.replace(/T.*Z/g, '')}</span>
+				<div class="px-6 pt-4 pb-3 mt-auto flex">
+					<div class="flex flex-wrap items-start">
+						{#each post.category.split(',') as category}
+							<span class="inline-block bg-gray-200 rounded-full px-3 py-1 mb-1 text-sm font-semibold text-gray-700 mr-2">{category}</span>
+						{/each}
+					</div>
+					<div class="ml-auto mb-1 flex flex-shrink-0 items-center text-gray-500 text-sm"><i class="material-icons text-sm mr-1">access_time</i>{post.createdAt.replace(/T.*Z/g, '')}</div>
 				</div>
 			</div>
 		</a>
