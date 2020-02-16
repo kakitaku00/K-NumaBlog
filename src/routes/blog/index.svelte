@@ -40,7 +40,7 @@
 				</div>
 				<div class="px-6 py-4 mt-auto flex justify-between">
 					<span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#photography</span>
-					<span class="inline-block text-gray-500">{post.createdAt.replace(/T.*Z/g, '')}</span>
+					<span class="flex items-center text-gray-500"><i class="material-icons text-base mr-1">access_time</i>{post.createdAt.replace(/T.*Z/g, '')}</span>
 				</div>
 			</div>
 		</div>
