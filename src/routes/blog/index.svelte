@@ -13,6 +13,10 @@
 	import { fade } from 'svelte/transition';
 
 	export let posts;
+
+	function coverImage(res) {
+		return res ? res.url : 'https://images.microcms-assets.io/protected/ap-northeast-1:f18fa8ff-5b5f-43d2-ac15-ec07384ec391/service/kakki-blog/media/template.jpg';
+	}
 </script>
 
 <style>
@@ -39,7 +43,7 @@
 		<!-- <li><a rel='prefetch' href='blog/{post.slug}'>{post.title}</a></li> -->
 		<!-- TODO: 二回クリックしないと目次が機能しないので#をつける -->
 		<a rel='prefetch' href={`/blog/${post.id}#`} class="post w-full mb-8 rounded overflow-hidden shadow-md flex hover:shadow-xl transition duration-500">
-			<div class="w-1/3 h-auto bg-cover" style="background-image: url({post.image.url})">
+			<div class="w-1/3 h-auto bg-cover" style="background-image: url({coverImage(post.cover_image)})">
 			</div>
 			<!-- <img class="w-full" src={post.image.url} alt="thumbnail"> -->
 			<div class="w-2/3 flex flex-col">
