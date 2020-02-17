@@ -1,5 +1,6 @@
 <script>
 	import Nav from '../components/Nav.svelte';
+	import SideNav from '../components/SideNav.svelte';
 	import Footer from '../components/Footer.svelte';
 
 	export let segment;
@@ -19,10 +20,11 @@
 <Nav {segment}/>
 
 <main class="flex">
-  <div class="w-3/4">
+	<div class="w-3/4">
 		<slot></slot>
 	</div>
-  <div class="w-1/4 bg-gray-400 h-12">
+	<div class="w-1/4 pl-8">
+		<SideNav />
 	</div>
 </main>
 
