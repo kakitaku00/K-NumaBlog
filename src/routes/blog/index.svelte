@@ -1,10 +1,10 @@
 <script context="module">
 	import microApi from '../../api/index';
 
-	export function preload({ params, query }) {
+	export async function preload({ params, query }) {
 		const filters = query.filters;
 		const url = !filters ? '/blog' : `/blog?filters=body[contains]${filters}`
-		return microApi.get(encodeURI(url)).then(res => {
+		return await microApi.get(encodeURI(url)).then(res => {
 			let posts = res.data.contents
 			return { posts };
 		})

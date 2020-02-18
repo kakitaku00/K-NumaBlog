@@ -2,8 +2,11 @@
 	import Nav from '../components/Nav.svelte';
 	import SideNav from '../components/SideNav.svelte';
 	import Footer from '../components/Footer.svelte';
+	import { stores } from "@sapper/app";
 
 	export let segment;
+
+	let { preloading } = stores();
 </script>
 
 <style>
@@ -21,7 +24,11 @@
 
 <main class="flex">
 	<div class="w-3/4">
-		<slot></slot>
+		{#if $preloading}
+			<div>Loading</div>
+		{:else}
+			<slot></slot>
+		{/if}
 	</div>
 	<div class="w-1/4 pl-8">
 		<SideNav />
