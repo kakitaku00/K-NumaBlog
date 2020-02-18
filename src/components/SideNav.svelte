@@ -1,3 +1,14 @@
+<script>
+  import * as sapper from '@sapper/app'
+
+  let search = "";
+
+  function handleSubmit() {
+    if (!search) return
+    sapper.goto(`/blog?filters=${search}`);
+  }
+</script>
+
 <div class="mb-4 text-sm">
   <div class="w-full rounded bg-gray-200 p-2 mb-2">
     プロフィール
@@ -10,11 +21,13 @@
   <div class="w-full rounded bg-gray-200 p-2 mb-2">
     記事を検索
   </div>
-  <div class="shadow flex">
-    <input class="w-full rounded p-2" type="text" placeholder="Search...">
-    <button class="bg-white w-auto flex justify-end items-center text-blue p-2 hover:text-blue-light">
-      <i class="material-icons">search</i>
-    </button>
+  <div class="shadow">
+    <form on:submit|preventDefault={handleSubmit} class="flex" >
+      <input bind:value={search} class="w-full rounded p-2" type="text" placeholder="キーワードを入力">
+      <button type="submit" class="bg-white w-auto flex justify-end items-center text-blue p-2 hover:text-blue-light">
+        <i class="material-icons">search</i>
+      </button>
+    </form>
   </div>
 </div>
 <div class="mb-4 text-sm">

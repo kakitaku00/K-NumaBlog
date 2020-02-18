@@ -2,7 +2,9 @@
 	import microApi from '../../api/index';
 
 	export function preload({ params, query }) {
-		return microApi.get('/blog').then(res => {
+		const filters = query.filters;
+		const url = !filters ? '/blog' : `/blog?filters=body[contains]${filters}`
+		return microApi.get(encodeURI(url)).then(res => {
 			let posts = res.data.contents
 			return { posts };
 		})
