@@ -23,9 +23,13 @@
 <Nav {segment}/>
 
 <main class="flex">
-	<div class="w-3/4">
+	<div class="w-3/4 relative">
 		{#if $preloading}
-			<div>Loading</div>
+			<div class="w-full h-full absolute block top-0 left-0 bg-white z-50">
+				<span class="text-green-500 opacity-75 top-1/2 my-0 mx-auto block relative w-0 h-0" style="top: 50%;">
+					<i class="fas fa-circle-notch fa-spin fa-2x"></i>
+				</span>
+			</div>
 		{:else}
 			<slot></slot>
 		{/if}

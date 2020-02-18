@@ -29,7 +29,6 @@
 .post:hover {
 	transform: translateY(-3px);
 }
-
 </style>
 
 <svelte:head>
