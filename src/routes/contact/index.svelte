@@ -74,14 +74,13 @@
 </svelte:head>
 
 <div in:fade>
-  <header class="mb-8">
-    <h1 class="text-3xl">お問い合わせ</h1>
+  <div class="mb-8">
     {#if thanks}
       <p>お問い合わせありがとうございました。</p>
     {:else}
       <p>以下のフォームからお問い合わせください。</p>
     {/if}
-  </header>
+  </div>
   {#if !thanks}
     <div class="bg-white my-4 shadow p-8 rounded">
       <div class="mb-4">

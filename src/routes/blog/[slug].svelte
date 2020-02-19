@@ -29,8 +29,10 @@
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { goto } from '@sapper/app';
+	import { blogTitle } from '../../stores/blogTitle'
 
 	export let post;
+	blogTitle.set(post.title)
 
 	let contents = "";
 	let toc = []

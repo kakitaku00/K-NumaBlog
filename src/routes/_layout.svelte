@@ -2,6 +2,7 @@
 	import Nav from '../components/Nav.svelte';
 	import SideNav from '../components/SideNav.svelte';
 	import Footer from '../components/Footer.svelte';
+	import Breacrumb from '../components/Breacrumb.svelte';
 
 	export let segment;
 </script>
@@ -21,6 +22,7 @@
 
 <main class="flex">
 	<div class="w-3/4 relative">
+		<Breacrumb {segment}/>
 		<slot></slot>
 	</div>
 	<div class="w-1/4 pl-8">
