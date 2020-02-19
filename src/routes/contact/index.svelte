@@ -1,10 +1,12 @@
 <script>
 	import { fade } from 'svelte/transition';
-  import ContactModal from '../components/ContactModal.svelte';
+  import * as sapper from '@sapper/app'
+  import contactApi from "../../api/contact";
+  import ContactModal from '../../components/ContactModal.svelte';
 
   let name = "";
   let email = "";
-  let text = "";
+  let body = "";
 
   function handleModal() {
     const body = document.querySelector('body')
@@ -12,6 +14,21 @@
     modal.classList.toggle('opacity-0')
     modal.classList.toggle('pointer-events-none')
     body.classList.toggle('modal-active')
+  }
+
+  function handleSubmit() {
+    const data = {
+      name,
+      email,
+      body
+    }
+    contactApi.post('/contact', data)
+      .then(res => {
+        sapper.goto(`/contact/thanks`);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
   }
 </script>
 
@@ -47,7 +64,7 @@
     <div class="mb-4">
       <label class="block">
         <span class="block text-gray-700 mb-2"><i class="fas fa-asterisk text-xs mr-1 text-red-500"></i>お問い合わせ内容</span>
-        <textarea bind:value={text} class="form-textarea py-1 px-2 block w-full border" rows="5" placeholder="テキストを入力"></textarea>
+        <textarea bind:value={body} class="form-textarea py-1 px-2 block w-full border" rows="5" placeholder="テキストを入力"></textarea>
       </label>
     </div>
     <div class="text-center">
@@ -56,5 +73,6 @@
       </button>
     </div>
   </div>
-  <ContactModal on:click={handleModal} {name} {email} {text}/>
+
+  <ContactModal on:click={handleSubmit} on:toggleModal={handleModal} {name} {email} {body}/>
 </div>
