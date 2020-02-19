@@ -100,7 +100,9 @@
 </svelte:head>
 
 <div class="content" in:fade>
-	<h1 class="font-semibold">{post.title}</h1>
+	<header class="mb-8">
+		<h1 class="text-3xl">{post.title}</h1>
+	</header>
 	<div class="mb-4">
 		<h2>目次</h2>
 		<ul class="heading-list">

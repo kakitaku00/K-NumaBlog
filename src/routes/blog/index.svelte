@@ -42,6 +42,9 @@
 	<Loading />
 {:else}
 	<div in:fade>
+		<header class="mb-8">
+			<h1 class="text-3xl">ブログ</h1>
+		</header>
 		{#if !posts.length}
 			<p>該当記事はありませんでした。</p>
 		{/if}

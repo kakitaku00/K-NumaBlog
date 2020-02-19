@@ -75,7 +75,7 @@
 
 <div in:fade>
   <header class="mb-8">
-    <h1>お問い合わせ</h1>
+    <h1 class="text-3xl">お問い合わせ</h1>
     {#if thanks}
       <p>お問い合わせありがとうございました。</p>
     {:else}
