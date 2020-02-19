@@ -34,19 +34,19 @@
   <div class="bg-white my-4 shadow p-8 rounded">
     <div class="mb-4">
       <label class="block">
-        <span class="block text-gray-700 mb-2">お名前</span>
+        <span class="block text-gray-700 mb-2"><i class="fas fa-asterisk text-xs mr-1 text-red-500"></i>お名前</span>
         <input bind:value={name} type="text" class="form-input py-1 px-2 block w-full border" placeholder="name">
       </label>
     </div>
     <div class="mb-4">
       <label class="block">
-        <span class="block text-gray-700 mb-2">メールアドレス</span>
+        <span class="block text-gray-700 mb-2"><i class="fas fa-asterisk text-xs mr-1 text-red-500"></i>メールアドレス</span>
         <input bind:value={email} type="email" class="form-input py-1 px-2 block w-full border" placeholder="email@example.com">
       </label>
     </div>
     <div class="mb-4">
       <label class="block">
-        <span class="block text-gray-700 mb-2">お問い合わせ内容</span>
+        <span class="block text-gray-700 mb-2"><i class="fas fa-asterisk text-xs mr-1 text-red-500"></i>お問い合わせ内容</span>
         <textarea bind:value={text} class="form-textarea py-1 px-2 block w-full border" rows="5" placeholder="テキストを入力"></textarea>
       </label>
     </div>
