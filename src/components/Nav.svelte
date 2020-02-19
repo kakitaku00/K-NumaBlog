@@ -34,6 +34,9 @@
       <a href="created" class:selected='{segment === "created"}' class="block mt-4 md:inline-block md:mt-0 text-teal-200 hover:text-white mr-4 transition duration-500">
         製作
       </a>
+      <a href="contact" class:selected='{segment === "contact"}' class="block mt-4 md:inline-block md:mt-0 text-teal-200 hover:text-white mr-4 transition duration-500">
+        お問い合わせ
+      </a>
     </div>
     <div class="flex">
       <a href="."><TwitterIcon styleClass="mr-4 w-6 h-6 fill-current text-white transition-opacity duration-500 hover:opacity-75"/></a>
