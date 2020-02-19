@@ -3,9 +3,7 @@
 
   const dispatch = createEventDispatcher();
 
-  export let name;
-  export let email;
-  export let body;
+  export let contactData;
 
   function toggleModal() {
     dispatch('toggleModal')
@@ -31,15 +29,15 @@
 
       <div class="mb-6">
         <span class="block text-gray-700 font-bold mb-2">お名前</span>
-        <span class="block text-gray-700">{name}</span>
+        <span class="block text-gray-700">{contactData.name.value}</span>
       </div>
       <div class="mb-6">
         <span class="block text-gray-700 font-bold mb-2">メールアドレス</span>
-        <span class="block text-gray-700">{email}</span>
+        <span class="block text-gray-700">{contactData.email.value}</span>
       </div>
       <div class="mb-6">
         <span class="block text-gray-700 font-bold mb-2">お問い合わせ内容</span>
-        <span class="block text-gray-700">{body}</span>
+        <span class="block text-gray-700">{contactData.body.value}</span>
       </div>
 
       <div class="flex justify-center pt-2">
