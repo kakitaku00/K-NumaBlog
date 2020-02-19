@@ -42,12 +42,10 @@
 	<Loading />
 {:else}
 	<div in:fade>
+		{#if !posts.length}
+			<p>該当記事はありませんでした。</p>
+		{/if}
 		{#each posts as post}
-			<!-- we're using the non-standard `rel=prefetch` attribute to
-					tell Sapper to load the data for the page as soon as
-					the user hovers over the link or taps it, instead of
-					waiting for the 'click' event -->
-			<!-- <li><a rel='prefetch' href='blog/{post.slug}'>{post.title}</a></li> -->
 			<!-- TODO: 二回クリックしないと目次が機能しないので#をつける -->
 			<a rel='prefetch' href={`/blog/${post.id}#`} class="post w-full mb-8 rounded overflow-hidden shadow-md flex hover:shadow-xl transition duration-500">
 				<div class="w-1/3 h-auto bg-cover" style="background-image: url({coverImage(post.cover_image)})">
