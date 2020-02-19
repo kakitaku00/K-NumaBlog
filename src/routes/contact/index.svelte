@@ -65,8 +65,7 @@
 
 <style>
   :global(body.modal-active) {
-    overflow-x: hidden;
-    overflow-y: visible !important;
+    overflow: hidden;
   }
 </style>
 

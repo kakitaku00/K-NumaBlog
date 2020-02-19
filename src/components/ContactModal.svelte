@@ -37,7 +37,7 @@
       </div>
       <div class="mb-6">
         <span class="block text-gray-700 font-bold mb-2">お問い合わせ内容</span>
-        <span class="block text-gray-700">{contactData.body.value}</span>
+        <span class="block text-gray-700 h-40 overflow-scroll whitespace-pre-wrap">{contactData.body.value}</span>
       </div>
 
       <div class="flex justify-center pt-2">
