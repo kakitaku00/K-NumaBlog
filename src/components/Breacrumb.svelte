@@ -24,4 +24,4 @@
       {/if}
     </ul>
   </div>
-</header>
+</div>
