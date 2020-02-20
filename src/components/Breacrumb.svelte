@@ -20,7 +20,7 @@
       <li><a href="{segment || 'home'}" class:selected='{segment === "home"}'>{segmentData[segment] || "ホーム"}</a></li>
       <!-- TODO: 他のsapperの機能で実装できるか探す -->
       {#if $blogTitle && $page.params.slug}
-         <li><a href="#_">＜ {$blogTitle}</a></li>
+        <li><a href="#_">＜ {$blogTitle}</a></li>
       {/if}
     </ul>
   </div>
