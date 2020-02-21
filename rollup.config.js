@@ -11,15 +11,16 @@ import dotenv from 'dotenv'
 // import fs from 'fs'
 // import path from 'path'
 
-dotenv.config()
+const env = dotenv.config()
 
+console.log(env)
 // const fileEnv = '.env'
 
 // // get the env variables from the .env file relative to the current NODE_ENV
 // const ENV_VARS = dotenv.parse(fs.readFileSync(path.resolve(__dirname, fileEnv)))
-const ENV_VARS = dotenv.config().parsed
+const ENV_VARS = env.parsed
 
-// console.log(ENV_VARS)
+console.log(ENV_VARS)
 
 // console.log(dotenv.config())
 // {
