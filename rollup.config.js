@@ -8,20 +8,20 @@ import { terser } from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
 import dotenv from 'dotenv'
-import fs from 'fs'
-import path from 'path'
+// import fs from 'fs'
+// import path from 'path'
 
 dotenv.config()
 
-const fileEnv = '.env'
+// const fileEnv = '.env'
 
 // // get the env variables from the .env file relative to the current NODE_ENV
 // const ENV_VARS = dotenv.parse(fs.readFileSync(path.resolve(__dirname, fileEnv)))
 const ENV_VARS = dotenv.config().parsed
 
-console.log(ENV_VARS)
+// console.log(ENV_VARS)
 
-console.log(dotenv.config())
+// console.log(dotenv.config())
 // {
 //   parsed: {
 //     X_BLOG_API_KEY: 'dbb4fa15-78e4-4586-8d16-be5e6168c584',
@@ -37,7 +37,7 @@ const valuesEnvToReplace = () => {
   }, {})
 }
 
-console.log(valuesEnvToReplace())
+// console.log(valuesEnvToReplace())
 //  'process.env.X_BLOG_API_KEY': '"***********"',
 //  'process.env.X_CONTACT_WRITE_API_KEY': '"2f4301c7-d004-4f90-8f4c-04c38d7262a9"'
 
