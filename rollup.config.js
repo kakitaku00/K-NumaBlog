@@ -11,16 +11,16 @@ import dotenv from 'dotenv'
 // import fs from 'fs'
 // import path from 'path'
 
-const env = dotenv.config()
+dotenv.config()
 
-console.log(env)
+
 // const fileEnv = '.env'
 
 // // get the env variables from the .env file relative to the current NODE_ENV
 // const ENV_VARS = dotenv.parse(fs.readFileSync(path.resolve(__dirname, fileEnv)))
-const ENV_VARS = env.parsed
+// const ENV_VARS = env.parsed
 
-console.log(ENV_VARS)
+// console.log(ENV_VARS)
 
 // console.log(dotenv.config())
 // {
@@ -30,9 +30,17 @@ console.log(ENV_VARS)
 //   }
 // }
 
+const env = {
+	X_BLOG_API_KEY: process.env.X_BLOG_API_KEY,
+	X_CONTACT_WRITE_API_KEY: process.env.X_CONTACT_WRITE_API_KEY
+}
+
+console.log(env)
+
+
 
 const valuesEnvToReplace = () => {
-  return Object.entries(ENV_VARS).reduce((acc, [key, val]) => {
+  return Object.entries(env).reduce((acc, [key, val]) => {
     acc[`process.env.${key}`] = JSON.stringify(val)
     return acc
   }, {})
