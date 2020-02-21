@@ -4,7 +4,7 @@ const contactApi = axios.create({
   baseURL: "https://kakki-blog.microcms.io/api/v1",
   headers: {
     "Content-Type": "application/json",
-    "X-WRITE-API-KEY": process.env.X_POST_WRITE_API_KEY
+    "X-WRITE-API-KEY": process.env.X_CONTACT_WRITE_API_KEY
   },
 })
 
