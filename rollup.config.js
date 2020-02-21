@@ -16,7 +16,7 @@ dotenv.config()
 const fileEnv = '.env'
 
 // get the env variables from the .env file relative to the current NODE_ENV
-const ENV_VARS = dotenv.parse(fs.readFileSync(path.resolve(__dirname, fileEnv)))
+const ENV_VARS = dotenv.parse(fs.readFileSync(path.resolve(fileEnv)))
 
 const valuesEnvToReplace = () => {
   return Object.entries(ENV_VARS).reduce((acc, [key, val]) => {
