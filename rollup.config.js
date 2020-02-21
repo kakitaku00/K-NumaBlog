@@ -16,7 +16,11 @@ dotenv.config()
 const fileEnv = '.env'
 
 // get the env variables from the .env file relative to the current NODE_ENV
-const ENV_VARS = dotenv.parse(fs.readFileSync(path.resolve(fileEnv)))
+const ENV_VARS = dotenv.parse(fs.readFileSync(path.resolve(__dirname, fileEnv)))
+
+console.log(path.resolve(__dirname, fileEnv))
+
+console.log(ENV_VARS)
 
 const valuesEnvToReplace = () => {
   return Object.entries(ENV_VARS).reduce((acc, [key, val]) => {
@@ -24,6 +28,10 @@ const valuesEnvToReplace = () => {
     return acc
   }, {})
 }
+
+console.log(valuesEnvToReplace())
+//  'process.env.X_BLOG_API_KEY': '"***********"',
+//  'process.env.X_CONTACT_WRITE_API_KEY': '"2f4301c7-d004-4f90-8f4c-04c38d7262a9"'
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
