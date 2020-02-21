@@ -1,6 +1,4 @@
 <script>
-	import { GithubIcon, TwitterIcon } from 'svelte-simple-icons'
-
 	export let segment;
 </script>
 
@@ -39,8 +37,8 @@
       </a>
     </div>
     <div class="flex">
-      <a href="."><TwitterIcon styleClass="mr-4 w-6 h-6 fill-current text-white transition-opacity duration-500 hover:opacity-75"/></a>
-      <a href="."><GithubIcon styleClass="w-6 h-6 fill-current text-white transition-opacity duration-500 hover:opacity-75"/></a>
+      <a href="."><i class="fab fa-twitter text-2xl mr-6 fill-current text-white transition-opacity duration-500 hover:opacity-75"></i></a>
+      <a href="."><i class="fab fa-github text-2xl fill-current text-white transition-opacity duration-500 hover:opacity-75"></i></a>
     </div>
   </div>
 </nav>

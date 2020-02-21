@@ -8,18 +8,16 @@ import { terser } from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
 import dotenv from 'dotenv'
-import fs from 'fs'
-import path from 'path'
 
 dotenv.config()
 
-const fileEnv = '.env'
-
-// get the env variables from the .env file relative to the current NODE_ENV
-const ENV_VARS = dotenv.parse(fs.readFileSync(path.resolve(__dirname, fileEnv)))
+const env = {
+	X_BLOG_API_KEY: process.env.X_BLOG_API_KEY,
+	X_CONTACT_WRITE_API_KEY: process.env.X_CONTACT_WRITE_API_KEY
+}
 
 const valuesEnvToReplace = () => {
-  return Object.entries(ENV_VARS).reduce((acc, [key, val]) => {
+  return Object.entries(env).reduce((acc, [key, val]) => {
     acc[`process.env.${key}`] = JSON.stringify(val)
     return acc
   }, {})
