@@ -26,10 +26,10 @@
 	import "../../../node_modules/highlight.js/styles/zenburn.css"
 	import marked from 'marked';
 	import hljs from 'highlight.js';
-	import { onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { goto } from '@sapper/app';
-	import { blogTitle } from '../../stores/blogTitle'
+	import { blogTitle } from '../../stores/breacrumb'
 
 	export let post;
 	blogTitle.set(post.title)
@@ -81,6 +81,10 @@
 
 	onMount(async () => {
 		await renderPost()
+	})
+
+	onDestroy(() => {
+		blogTitle.set('')
 	})
 </script>
 

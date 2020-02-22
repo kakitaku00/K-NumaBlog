@@ -1,10 +1,11 @@
 <script>
-  import { blogTitle } from '../stores/blogTitle';
-  import { stores } from '@sapper/app';
+	import { onMount } from 'svelte';
+	import { blogTitle } from '../stores/breacrumb';
+	import { stores } from '@sapper/app';
 
-  const { page } = stores();
+	const { page } = stores();
 
-  export let segment;
+	export let segment;
 
 	const segmentData = {
 		profile: "プロフィール",
@@ -14,14 +15,20 @@
 	}
 </script>
 
+<style>
+:global(::before) {
+	border-color: #333;
+}
+</style>
+
 <div class="mb-4">
-  <div class="breacrumb mb-1">
-    <ul class="text-xs flex">
-      <li><a href="{segment || 'home'}" class:selected='{segment === "home"}'>{segmentData[segment] || "ホーム"}</a></li>
-      <!-- TODO: 他のsapperの機能で実装できるか探す -->
-      {#if $blogTitle && $page.params.slug}
-        <li><a href="#_">＜ {$blogTitle}</a></li>
-      {/if}
-    </ul>
-  </div>
+	<div class="breacrumb p-2 mb-1">
+		<ul class="text-xs flex">
+			<li><a href="{segment || 'home'}" class:selected='{segment === "home"}'>{segmentData[segment] || "ホーム"}</a></li>
+			<!-- TODO: 他のsapperの機能で実装できるか探す -->
+			{#if $blogTitle && $page.params !== {}}
+				<li class="flex items-center"><i class="fas fa-chevron-left mx-2"></i>{$blogTitle}</li>
+			{/if}
+		</ul>
+	</div>
 </div>
