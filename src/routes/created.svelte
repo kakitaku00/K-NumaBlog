@@ -7,6 +7,5 @@
 </svelte:head>
 
 <div in:fade>
-	<h1>製作</h1>
   <p>Comming soon ...</p>
 </div>

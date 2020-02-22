@@ -26,11 +26,13 @@
 	import "../../../node_modules/highlight.js/styles/zenburn.css"
 	import marked from 'marked';
 	import hljs from 'highlight.js';
-	import { onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { goto } from '@sapper/app';
+	import { blogTitle } from '../../stores/breacrumb'
 
 	export let post;
+	blogTitle.set(post.title)
 
 	let contents = "";
 	let toc = []
@@ -80,6 +82,10 @@
 	onMount(async () => {
 		await renderPost()
 	})
+
+	onDestroy(() => {
+		blogTitle.set('')
+	})
 </script>
 
 <style>
@@ -100,7 +106,9 @@
 </svelte:head>
 
 <div class="content" in:fade>
-	<h1 class="font-semibold">{post.title}</h1>
+	<header class="mb-8">
+		<h1 class="text-3xl">{post.title}</h1>
+	</header>
 	<div class="mb-4">
 		<h2>目次</h2>
 		<ul class="heading-list">
