@@ -9,7 +9,7 @@
   }
 </script>
 
-<div class="sticky top-2">
+<div class="sticky top-2 hidden md:block">
   <div class="mb-4 text-sm">
     <div class="w-full rounded bg-gray-200 p-2 mb-2">
       プロフィール
