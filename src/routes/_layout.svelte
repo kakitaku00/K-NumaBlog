@@ -21,13 +21,13 @@
 <Nav {segment}/>
 
 <main class="flex">
-	<div class="w-3/4 relative">
+	<div class="w-full md:w-3/4 relative">
 		<Breacrumb {segment}/>
 		<div class="px-2">
 			<slot></slot>
 		</div>
 	</div>
-	<div class="w-1/4 pl-8">
+	<div class="hidden md:block w-1/4 pl-8">
 		<SideNav />
 	</div>
 </main>
