@@ -25,7 +25,7 @@
 }
 </style>
 
-<div class="breacrumb mb-4 p-2 sticky top-0 bg-white">
+<div class="breacrumb mb-4 p-2 sticky top-0 bg-white z-10">
 	<ul class="text-xs flex">
 		<li><a href="{segment || 'home'}" class:selected='{segment === "home"}'>{segmentData[segment] || "ホーム"}</a></li>
 		<!-- TODO: 他のsapperの機能で実装できるか探す -->

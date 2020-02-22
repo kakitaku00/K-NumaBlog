@@ -23,7 +23,9 @@
 <main class="flex">
 	<div class="w-3/4 relative">
 		<Breacrumb {segment}/>
-		<slot></slot>
+		<div class="px-2">
+			<slot></slot>
+		</div>
 	</div>
 	<div class="w-1/4 pl-8">
 		<SideNav />
