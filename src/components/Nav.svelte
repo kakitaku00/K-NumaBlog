@@ -1,5 +1,9 @@
 <script>
+  import { fade } from 'svelte/transition';
+
 	export let segment;
+
+  let spMenu = false;
 </script>
 
 <style>
@@ -17,7 +21,7 @@
     <a href="." class="font-semibold text-xl tracking-tight">K-NumaTech</a>
   </div>
   <div class="block md:hidden">
-    <button class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
+    <button on:click={() => spMenu = true} class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
       <i class="fas fa-bars"></i>
     </button>
   </div>
@@ -45,39 +49,41 @@
     </div>
   </div>
 </nav>
-<div class="overlay fixed top-0 left-0 w-full h-screen bg-white-alpha z-20 backdrop-blur">
-  <div class="block">
-    <button class="flex items-center px-3 py-2 border rounded absolute top-4 right-4">
-      <i class="fas fa-times"></i>
-    </button>
+{#if spMenu}
+  <div transition:fade class="overlay fixed top-0 left-0 w-full h-screen bg-white-alpha z-20 backdrop-blur">
+    <div class="block">
+      <button on:click={() => spMenu = false} class="flex items-center px-3 py-2 border rounded absolute top-4 right-4">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <nav class="mt-24 px-4">
+      <ul class="text-sm text-center">
+        <li class="mb-4">
+          <a href="." class="inline-block text-xl font-bold {segment === undefined ? 'text-teal-500' : ''}">
+            ホーム
+          </a>
+        </li>
+        <li class="mb-4">
+          <a href="profile" class="inline-block text-xl font-bold {segment === 'profile' ? 'text-teal-500' : ''}">
+            プロフィール
+          </a>
+        </li>
+        <li class="mb-4">
+          <a href="blog" class="inline-block text-xl font-bold {segment === 'blog' ? 'text-teal-500' : ''}">
+            ブログ
+          </a>
+        </li>
+        <li class="mb-4">
+          <a href="created" class="inline-block text-xl font-bold {segment === 'created' ? 'text-teal-500' : ''}">
+            製作
+          </a>
+        </li>
+        <li class="mb-4">
+          <a href="contact" class="inline-block text-xl font-bold {segment === 'contact' ? 'text-teal-500' : ''}">
+            お問い合わせ
+          </a>
+        </li>
+      </ul>
+    </nav>
   </div>
-  <nav class="mt-24 px-4">
-    <ul class="text-sm text-center">
-      <li class="mb-4">
-        <a href="." class="inline-block text-xl font-bold {segment === undefined ? 'text-teal-500' : ''}">
-          ホーム
-        </a>
-      </li>
-      <li class="mb-4">
-        <a href="profile" class="inline-block text-xl font-bold {segment === 'profile' ? 'text-teal-500' : ''}">
-          プロフィール
-        </a>
-      </li>
-      <li class="mb-4">
-        <a href="blog" class="inline-block text-xl font-bold {segment === 'blog' ? 'text-teal-500' : ''}">
-          ブログ
-        </a>
-      </li>
-      <li class="mb-4">
-        <a href="created" class="inline-block text-xl font-bold {segment === 'created' ? 'text-teal-500' : ''}">
-          製作
-        </a>
-      </li>
-      <li class="mb-4">
-        <a href="contact" class="inline-block text-xl font-bold {segment === 'contact' ? 'text-teal-500' : ''}">
-          お問い合わせ
-        </a>
-      </li>
-    </ul>
-  </nav>
-</div>
+{/if}
