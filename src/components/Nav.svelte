@@ -8,7 +8,7 @@
 	}
 </style>
 
-<nav class="flex items-center justify-between flex-wrap bg-teal-500 p-4 md:p-6">
+<nav class="header-nav flex items-center justify-between flex-wrap bg-teal-500 p-4 md:p-6">
   <div class="flex items-center flex-shrink-0 text-white mr-6">
     <a href="." class="font-semibold text-xl tracking-tight">K-NumaTech</a>
   </div>

@@ -35,7 +35,7 @@
 </style>
 
 <svelte:head>
-	<title>ブログ</title>
+	<title>K-NumaTech ブログ</title>
 </svelte:head>
 
 {#if $preloading}

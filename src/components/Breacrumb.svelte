@@ -13,6 +13,32 @@
 		created: "製作",
 		contact: "お問い合わせ"
 	}
+
+	function handleSticky() {
+		const header = document.querySelector('.header-nav')
+		const options = {
+			root: null,
+			rootMargin: "0px",
+			threshold: 0
+		};
+		const observer = new IntersectionObserver(handleBorderStyle, options);
+		observer.observe(header);
+	}
+
+	function handleBorderStyle(entries) {
+		const breacrumb = document.querySelector('.breacrumb')
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				breacrumb.classList.remove('breacrumb-border')
+			} else {
+				breacrumb.classList.add('breacrumb-border')
+			}
+		});
+	}
+
+	onMount(() => {
+		handleSticky()
+	})
 </script>
 
 <style>
@@ -20,7 +46,7 @@
 	border-color: #333;
 }
 
-.breacrumb {
+:global(.breacrumb-border)  {
 	border-bottom: 1px solid #eaecef;
 }
 </style>
