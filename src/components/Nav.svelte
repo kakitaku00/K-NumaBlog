@@ -1,11 +1,25 @@
 <script>
+  import { fade } from 'svelte/transition';
+  import * as sapper from '@sapper/app'
+
 	export let segment;
+
+  let spMenu = false;
+
+  function pagination(url) {
+    spMenu = false;
+    sapper.goto(url);
+  }
 </script>
 
 <style>
 	.selected {
 		color: #fff;
 	}
+
+  .overlay {
+    background-color: rgba(255, 255, 255, 0.7);
+  }
 </style>
 
 <nav class="header-nav flex items-center justify-between flex-wrap bg-teal-500 p-4 md:p-6">
@@ -13,8 +27,8 @@
     <a href="." class="font-semibold text-xl tracking-tight">K-NumaTech</a>
   </div>
   <div class="block md:hidden">
-    <button class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
-      <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+    <button on:click={() => spMenu = true} class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
+      <i class="fas fa-bars"></i>
     </button>
   </div>
   <div class="w-full hidden md:block flex-grow md:flex md:items-center md:w-auto">
@@ -41,3 +55,42 @@
     </div>
   </div>
 </nav>
+<!-- SP MENU -->
+{#if spMenu}
+  <div transition:fade class="overlay fixed top-0 left-0 w-full h-screen bg-white-alpha z-20 backdrop-blur">
+    <div class="block">
+      <button on:click={() => spMenu = false} class="flex items-center px-3 py-2 border rounded absolute top-4 right-4">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <nav class="mt-24 px-4">
+      <ul class="text-sm text-center">
+        <li class="mb-4">
+          <button on:click={() => pagination('.')} class="inline-block text-xl font-bold {segment === undefined ? 'text-teal-500' : ''}">
+            ホーム
+          </button>
+        </li>
+        <li class="mb-4">
+          <button on:click={() => pagination('profile')} class="inline-block text-xl font-bold {segment === 'profile' ? 'text-teal-500' : ''}">
+            プロフィール
+          </button>
+        </li>
+        <li class="mb-4">
+          <button on:click={() => pagination('blog')} class="inline-block text-xl font-bold {segment === 'blog' ? 'text-teal-500' : ''}">
+            ブログ
+          </button>
+        </li>
+        <li class="mb-4">
+          <button on:click={() => pagination('created')} class="inline-block text-xl font-bold {segment === 'created' ? 'text-teal-500' : ''}">
+            製作
+          </button>
+        </li>
+        <li class="mb-4">
+          <button on:click={() => pagination('contact')} class="inline-block text-xl font-bold {segment === 'contact' ? 'text-teal-500' : ''}">
+            お問い合わせ
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+{/if}
