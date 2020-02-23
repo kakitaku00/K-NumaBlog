@@ -6382,6 +6382,13 @@ video {
   left: 0.5rem;
 }
 
+.inset-4 {
+  top: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+}
+
 .inset-y-0 {
   top: 0;
   bottom: 0;
@@ -6400,6 +6407,16 @@ video {
 .inset-x-2 {
   right: 0.5rem;
   left: 0.5rem;
+}
+
+.inset-y-4 {
+  top: 1rem;
+  bottom: 1rem;
+}
+
+.inset-x-4 {
+  right: 1rem;
+  left: 1rem;
 }
 
 .top-0 {
@@ -6432,6 +6449,22 @@ video {
 
 .left-2 {
   left: 0.5rem;
+}
+
+.top-4 {
+  top: 1rem;
+}
+
+.right-4 {
+  right: 1rem;
+}
+
+.bottom-4 {
+  bottom: 1rem;
+}
+
+.left-4 {
+  left: 1rem;
 }
 
 .resize-none {
@@ -10559,6 +10592,14 @@ video {
 
 .duration-1000 {
   transition-duration: 1000ms;
+}
+
+.backdrop-none {
+  backdrop-filter: none;
+}
+
+.backdrop-blur {
+  backdrop-filter: blur(10px);
 }
 
 @media (min-width: 640px) {
@@ -15538,6 +15579,13 @@ video {
     left: 0.5rem;
   }
 
+  .sm\:inset-4 {
+    top: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    left: 1rem;
+  }
+
   .sm\:inset-y-0 {
     top: 0;
     bottom: 0;
@@ -15556,6 +15604,16 @@ video {
   .sm\:inset-x-2 {
     right: 0.5rem;
     left: 0.5rem;
+  }
+
+  .sm\:inset-y-4 {
+    top: 1rem;
+    bottom: 1rem;
+  }
+
+  .sm\:inset-x-4 {
+    right: 1rem;
+    left: 1rem;
   }
 
   .sm\:top-0 {
@@ -15588,6 +15646,22 @@ video {
 
   .sm\:left-2 {
     left: 0.5rem;
+  }
+
+  .sm\:top-4 {
+    top: 1rem;
+  }
+
+  .sm\:right-4 {
+    right: 1rem;
+  }
+
+  .sm\:bottom-4 {
+    bottom: 1rem;
+  }
+
+  .sm\:left-4 {
+    left: 1rem;
   }
 
   .sm\:resize-none {
@@ -19715,6 +19789,14 @@ video {
 
   .sm\:duration-1000 {
     transition-duration: 1000ms;
+  }
+
+  .sm\:backdrop-none {
+    backdrop-filter: none;
+  }
+
+  .sm\:backdrop-blur {
+    backdrop-filter: blur(10px);
   }
 }
 
@@ -24695,6 +24777,13 @@ video {
     left: 0.5rem;
   }
 
+  .md\:inset-4 {
+    top: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    left: 1rem;
+  }
+
   .md\:inset-y-0 {
     top: 0;
     bottom: 0;
@@ -24713,6 +24802,16 @@ video {
   .md\:inset-x-2 {
     right: 0.5rem;
     left: 0.5rem;
+  }
+
+  .md\:inset-y-4 {
+    top: 1rem;
+    bottom: 1rem;
+  }
+
+  .md\:inset-x-4 {
+    right: 1rem;
+    left: 1rem;
   }
 
   .md\:top-0 {
@@ -24745,6 +24844,22 @@ video {
 
   .md\:left-2 {
     left: 0.5rem;
+  }
+
+  .md\:top-4 {
+    top: 1rem;
+  }
+
+  .md\:right-4 {
+    right: 1rem;
+  }
+
+  .md\:bottom-4 {
+    bottom: 1rem;
+  }
+
+  .md\:left-4 {
+    left: 1rem;
   }
 
   .md\:resize-none {
@@ -28872,6 +28987,14 @@ video {
 
   .md\:duration-1000 {
     transition-duration: 1000ms;
+  }
+
+  .md\:backdrop-none {
+    backdrop-filter: none;
+  }
+
+  .md\:backdrop-blur {
+    backdrop-filter: blur(10px);
   }
 }
 
@@ -33852,6 +33975,13 @@ video {
     left: 0.5rem;
   }
 
+  .lg\:inset-4 {
+    top: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    left: 1rem;
+  }
+
   .lg\:inset-y-0 {
     top: 0;
     bottom: 0;
@@ -33870,6 +34000,16 @@ video {
   .lg\:inset-x-2 {
     right: 0.5rem;
     left: 0.5rem;
+  }
+
+  .lg\:inset-y-4 {
+    top: 1rem;
+    bottom: 1rem;
+  }
+
+  .lg\:inset-x-4 {
+    right: 1rem;
+    left: 1rem;
   }
 
   .lg\:top-0 {
@@ -33902,6 +34042,22 @@ video {
 
   .lg\:left-2 {
     left: 0.5rem;
+  }
+
+  .lg\:top-4 {
+    top: 1rem;
+  }
+
+  .lg\:right-4 {
+    right: 1rem;
+  }
+
+  .lg\:bottom-4 {
+    bottom: 1rem;
+  }
+
+  .lg\:left-4 {
+    left: 1rem;
   }
 
   .lg\:resize-none {
@@ -38029,6 +38185,14 @@ video {
 
   .lg\:duration-1000 {
     transition-duration: 1000ms;
+  }
+
+  .lg\:backdrop-none {
+    backdrop-filter: none;
+  }
+
+  .lg\:backdrop-blur {
+    backdrop-filter: blur(10px);
   }
 }
 
@@ -43009,6 +43173,13 @@ video {
     left: 0.5rem;
   }
 
+  .xl\:inset-4 {
+    top: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    left: 1rem;
+  }
+
   .xl\:inset-y-0 {
     top: 0;
     bottom: 0;
@@ -43027,6 +43198,16 @@ video {
   .xl\:inset-x-2 {
     right: 0.5rem;
     left: 0.5rem;
+  }
+
+  .xl\:inset-y-4 {
+    top: 1rem;
+    bottom: 1rem;
+  }
+
+  .xl\:inset-x-4 {
+    right: 1rem;
+    left: 1rem;
   }
 
   .xl\:top-0 {
@@ -43059,6 +43240,22 @@ video {
 
   .xl\:left-2 {
     left: 0.5rem;
+  }
+
+  .xl\:top-4 {
+    top: 1rem;
+  }
+
+  .xl\:right-4 {
+    right: 1rem;
+  }
+
+  .xl\:bottom-4 {
+    bottom: 1rem;
+  }
+
+  .xl\:left-4 {
+    left: 1rem;
   }
 
   .xl\:resize-none {
@@ -47186,5 +47383,13 @@ video {
 
   .xl\:duration-1000 {
     transition-duration: 1000ms;
+  }
+
+  .xl\:backdrop-none {
+    backdrop-filter: none;
+  }
+
+  .xl\:backdrop-blur {
+    backdrop-filter: blur(10px);
   }
 }

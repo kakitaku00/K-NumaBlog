@@ -82,7 +82,7 @@
     {/if}
   </div>
   {#if !thanks}
-    <div class="bg-white my-4 shadow p-8 rounded">
+    <div class="bg-white my-4 shadow p-4 md:p-8 rounded">
       <div class="mb-4">
         <label class="block">
           <span class="block text-gray-700 mb-2"><i class="fas fa-asterisk text-xs mr-1 text-red-500"></i>お名前{#if contactData.name.isError}<span class="ml-2 text-sm text-red-500">{contactData.name.errorText}</span>{/if}</span>
