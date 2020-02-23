@@ -48,9 +48,9 @@
 
   function handleSubmit() {
     const data = {
-      name,
-      email,
-      body
+      name: contactData.name.value,
+      email: contactData.email.value,
+      body: contactData.body.value,
     }
     contactApi.post('/contact', data)
       .then(res => {
