@@ -70,7 +70,7 @@
 </style>
 
 <svelte:head>
-	<title>お問い合わせ</title>
+	<title>K-NumaTech お問い合わせ</title>
 </svelte:head>
 
 <div in:fade>

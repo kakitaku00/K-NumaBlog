@@ -9,18 +9,13 @@
 
 <style>
 	main {
-		position: relative;
 		max-width: 1200px;
-		background-color: white;
-		padding: 2em;
-		margin: 0 auto;
-		box-sizing: border-box;
 	}
 </style>
 
 <Nav {segment}/>
 
-<main class="flex">
+<main class="p-2 md:p-6 mx-auto flex relative bg-white">
 	<div class="w-full md:w-3/4 relative">
 		<Breacrumb {segment}/>
 		<div class="px-2">
