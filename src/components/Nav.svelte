@@ -24,7 +24,7 @@
 
 <nav class="header-nav flex items-center justify-between flex-wrap bg-teal-500 p-4 md:p-6">
   <div class="flex items-center flex-shrink-0 text-white mr-6">
-    <a href="." class="font-semibold text-xl tracking-tight">K-NumaTech</a>
+    <a href="." class="font-bold text-xl tracking-tight">K-NumaTech</a>
   </div>
   <div class="block md:hidden">
     <button on:click={() => spMenu = true} class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">

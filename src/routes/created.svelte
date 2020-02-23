@@ -7,5 +7,5 @@
 </svelte:head>
 
 <div in:fade>
-  <p>Comming soon ...</p>
+  <p>Comming Soon ...</p>
 </div>
