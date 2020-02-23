@@ -15,6 +15,15 @@
   .modal {
     transition: opacity 0.25s ease;
   }
+
+  .scroll-bar-hideen  {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scroll-bar-hideen::-webkit-scrollbar {
+    display:none;
+  }
 </style>
 
 <div class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
@@ -38,7 +47,7 @@
         </div>
         <div class="mb-6">
           <dt class="block text-gray-700 font-bold mb-2">お問い合わせ内容</dt>
-          <dd class="block text-gray-700 h-40 overflow-scroll whitespace-pre-wrap">{contactData.body.value}</dd>
+          <dd class="scroll-bar-hideen block text-gray-700 h-40 overflow-y-scroll whitespace-pre-wrap">{contactData.body.value}</dd>
         </div>
       </dl>
       <div class="flex justify-center pt-2">
