@@ -27,20 +27,20 @@
           <i class="fas fa-times fa-1x"></i>
         </div>
       </div>
-
-      <div class="mb-6">
-        <span class="block text-gray-700 font-bold mb-2">お名前</span>
-        <span class="block text-gray-700">{contactData.name.value}</span>
-      </div>
-      <div class="mb-6">
-        <span class="block text-gray-700 font-bold mb-2">メールアドレス</span>
-        <span class="block text-gray-700">{contactData.email.value}</span>
-      </div>
-      <div class="mb-6">
-        <span class="block text-gray-700 font-bold mb-2">お問い合わせ内容</span>
-        <div class="block text-gray-700 h-40 overflow-scroll whitespace-pre-wrap">{contactData.body.value}</div>
-      </div>
-
+      <dl>
+        <div class="mb-6">
+          <dt class="block text-gray-700 font-bold mb-2">お名前</dt>
+          <dd class="block text-gray-700">{contactData.name.value}</dd>
+        </div>
+        <div class="mb-6">
+          <dt class="block text-gray-700 font-bold mb-2">メールアドレス</dt>
+          <dd class="block text-gray-700">{contactData.email.value}</dd>
+        </div>
+        <div class="mb-6">
+          <dt class="block text-gray-700 font-bold mb-2">お問い合わせ内容</dt>
+          <dd class="block text-gray-700 h-40 overflow-scroll whitespace-pre-wrap">{contactData.body.value}</dd>
+        </div>
+      </dl>
       <div class="flex justify-center pt-2">
         <button on:click={toggleModal} class="bg-white text-blue-700 font-semibold mr-2 py-2 px-4 border border-blue-500 hover:opacity-75 rounded">キャンセル</button>
         <button on:click class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">内容を送信</button>
