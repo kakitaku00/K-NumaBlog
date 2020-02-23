@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-	<title>プロフィール</title>
+	<title>K-NumaTech プロフィール</title>
 </svelte:head>
 
 <div in:fade>
