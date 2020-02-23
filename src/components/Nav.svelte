@@ -1,9 +1,15 @@
 <script>
   import { fade } from 'svelte/transition';
+  import * as sapper from '@sapper/app'
 
 	export let segment;
 
   let spMenu = false;
+
+  function pagination(url) {
+    spMenu = false;
+    sapper.goto(url);
+  }
 </script>
 
 <style>
@@ -49,6 +55,7 @@
     </div>
   </div>
 </nav>
+<!-- SP MENU -->
 {#if spMenu}
   <div transition:fade class="overlay fixed top-0 left-0 w-full h-screen bg-white-alpha z-20 backdrop-blur">
     <div class="block">
@@ -59,29 +66,29 @@
     <nav class="mt-24 px-4">
       <ul class="text-sm text-center">
         <li class="mb-4">
-          <a href="." class="inline-block text-xl font-bold {segment === undefined ? 'text-teal-500' : ''}">
+          <button on:click={() => pagination('.')} class="inline-block text-xl font-bold {segment === undefined ? 'text-teal-500' : ''}">
             ホーム
-          </a>
+          </button>
         </li>
         <li class="mb-4">
-          <a href="profile" class="inline-block text-xl font-bold {segment === 'profile' ? 'text-teal-500' : ''}">
+          <button on:click={() => pagination('profile')} class="inline-block text-xl font-bold {segment === 'profile' ? 'text-teal-500' : ''}">
             プロフィール
-          </a>
+          </button>
         </li>
         <li class="mb-4">
-          <a href="blog" class="inline-block text-xl font-bold {segment === 'blog' ? 'text-teal-500' : ''}">
+          <button on:click={() => pagination('blog')} class="inline-block text-xl font-bold {segment === 'blog' ? 'text-teal-500' : ''}">
             ブログ
-          </a>
+          </button>
         </li>
         <li class="mb-4">
-          <a href="created" class="inline-block text-xl font-bold {segment === 'created' ? 'text-teal-500' : ''}">
+          <button on:click={() => pagination('created')} class="inline-block text-xl font-bold {segment === 'created' ? 'text-teal-500' : ''}">
             製作
-          </a>
+          </button>
         </li>
         <li class="mb-4">
-          <a href="contact" class="inline-block text-xl font-bold {segment === 'contact' ? 'text-teal-500' : ''}">
+          <button on:click={() => pagination('contact')} class="inline-block text-xl font-bold {segment === 'contact' ? 'text-teal-500' : ''}">
             お問い合わせ
-          </a>
+          </button>
         </li>
       </ul>
     </nav>
