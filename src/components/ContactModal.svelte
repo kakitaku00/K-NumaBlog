@@ -6,6 +6,7 @@
   export let contactData;
 
   function toggleModal() {
+    console.log(contactData.email.value)
     dispatch('toggleModal')
   }
 </script>
@@ -37,7 +38,7 @@
       </div>
       <div class="mb-6">
         <span class="block text-gray-700 font-bold mb-2">お問い合わせ内容</span>
-        <span class="block text-gray-700 h-40 overflow-scroll whitespace-pre-wrap">{contactData.body.value}</span>
+        <div class="block text-gray-700 h-40 overflow-scroll whitespace-pre-wrap">{contactData.body.value}</div>
       </div>
 
       <div class="flex justify-center pt-2">
