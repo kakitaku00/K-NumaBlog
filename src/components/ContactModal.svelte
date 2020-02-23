@@ -6,7 +6,6 @@
   export let contactData;
 
   function toggleModal() {
-    console.log(contactData.email.value)
     dispatch('toggleModal')
   }
 </script>
@@ -26,7 +25,7 @@
   }
 </style>
 
-<div class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
+<div class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center z-50">
   <div on:click={toggleModal} class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
   <div class="modal-container bg-white w-11/12 md:max-w-xl mx-auto rounded shadow-lg z-50 overflow-y-auto">
     <div class="modal-content py-4 text-left px-6">
