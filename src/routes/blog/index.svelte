@@ -52,11 +52,11 @@
 				</div>
 				<!-- <img class="w-full" src={post.image.url} alt="thumbnail"> -->
 				<div class="w-full md:w-2/3 flex flex-col">
-					<div class="px-6 py-4">
+					<div class="px-4 md:px-6 py-4">
 						<div class="font-bold text-xl mb-2">{post.title}</div>
 						<p class="truncate text-gray-500 text-sm">{post.body}</p>
 					</div>
-					<div class="px-6 pt-4 pb-3 mt-auto flex">
+					<div class="px-4 md:px-6 pt-4 pb-3 mt-auto flex">
 						<div class="flex flex-wrap items-start">
 							{#each post.category.split(',') as category}
 								<span class="inline-block bg-gray-200 rounded-full px-3 py-1 mb-1 text-xs md:text-sm font-semibold text-gray-700 mr-2">{category}</span>
