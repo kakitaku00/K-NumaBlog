@@ -6,6 +6,10 @@
 	.selected {
 		color: #fff;
 	}
+
+  .overlay {
+    background-color: rgba(255, 255, 255, 0.7);
+  }
 </style>
 
 <nav class="header-nav flex items-center justify-between flex-wrap bg-teal-500 p-4 md:p-6">
@@ -14,7 +18,7 @@
   </div>
   <div class="block md:hidden">
     <button class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
-      <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+      <i class="fas fa-bars"></i>
     </button>
   </div>
   <div class="w-full hidden md:block flex-grow md:flex md:items-center md:w-auto">
@@ -41,3 +45,39 @@
     </div>
   </div>
 </nav>
+<div class="overlay fixed top-0 left-0 w-full h-screen bg-white-alpha z-20 backdrop-blur">
+  <div class="block">
+    <button class="flex items-center px-3 py-2 border rounded absolute top-4 right-4">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <nav class="mt-24 px-4">
+    <ul class="text-sm text-center">
+      <li class="mb-4">
+        <a href="." class="inline-block text-xl font-bold {segment === undefined ? 'text-teal-500' : ''}">
+          ホーム
+        </a>
+      </li>
+      <li class="mb-4">
+        <a href="profile" class="inline-block text-xl font-bold {segment === 'profile' ? 'text-teal-500' : ''}">
+          プロフィール
+        </a>
+      </li>
+      <li class="mb-4">
+        <a href="blog" class="inline-block text-xl font-bold {segment === 'blog' ? 'text-teal-500' : ''}">
+          ブログ
+        </a>
+      </li>
+      <li class="mb-4">
+        <a href="created" class="inline-block text-xl font-bold {segment === 'created' ? 'text-teal-500' : ''}">
+          製作
+        </a>
+      </li>
+      <li class="mb-4">
+        <a href="contact" class="inline-block text-xl font-bold {segment === 'contact' ? 'text-teal-500' : ''}">
+          お問い合わせ
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
