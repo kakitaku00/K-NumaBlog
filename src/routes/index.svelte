@@ -2,10 +2,6 @@
 	import { fade } from 'svelte/transition';
 </script>
 
-<style>
-
-</style>
-
 <svelte:head>
 	<title>K-NumaTech HOME</title>
 </svelte:head>
