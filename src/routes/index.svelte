@@ -1,10 +1,21 @@
 <script>
+	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
+
+	import TopLoadingTitle from '../components/TopLoadingTitle.svelte'
+
+	let isLoading = true;
+
+	function topLoading() {
+		setTimeout(() => {
+			isLoading = false
+		}, 3000);
+	}
+
+	onMount(() => {
+		topLoading()
+	})
 </script>
-
-<style>
-
-</style>
 
 <svelte:head>
 	<title>K-NumaTech HOME</title>
@@ -16,3 +27,6 @@
 <div class="flex mb-4" in:fade>
 
 </div>
+{#if isLoading}
+	<TopLoadingTitle />
+{/if}
