@@ -6,6 +6,4 @@
 	<title>K-NumaTech 製作</title>
 </svelte:head>
 
-<div in:fade>
-  <p>Comming Soon ...</p>
-</div>
+<p>Comming Soon ...</p>

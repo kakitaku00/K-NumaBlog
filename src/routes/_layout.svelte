@@ -13,6 +13,19 @@
 	let { preloading } = stores();
 
 	export let segment;
+	let pageLoad = false;
+
+	console.log(preloading)
+
+	function pageLoading() {
+		if ($preloading) {
+			setTimeout(() => {
+				pageLoad = $preloading
+			}, 1000);
+		} else {
+			pageLoad = $preloading
+		}
+	}
 
 	function topLoading() {
 		if ($topPageLoading) {
@@ -37,7 +50,7 @@
 <Nav {segment}/>
 
 	<main class="p-2 md:p-6 mx-auto flex relative bg-white">
-		{#if $preloading}
+		{#if pageLoad}
 			<Loading />
 		{:else}
 		<div class="w-full md:w-3/4 relative">
