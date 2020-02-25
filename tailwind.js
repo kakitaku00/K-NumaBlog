@@ -5,6 +5,9 @@ module.exports = {
       '2': '0.5rem',
       '4': '1rem',
     },
+    minHeight: {
+      '40': '10rem'
+    },
     filter: {},
     backdropFilter: {
       'none': 'none',

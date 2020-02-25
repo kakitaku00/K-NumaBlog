@@ -51,9 +51,9 @@
 }
 </style>
 
-<div class="breacrumb mb-4 p-2 sticky top-0 bg-white">
+<div class="breacrumb p-2 sticky top-0 bg-white z-10">
 	<ul class="text-xs flex items-center">
-		<li class="flex-shrink-0"><a href="{segment || 'home'}" class:selected='{segment === "home"}'>{segmentData[segment] || "ホーム"}</a></li>
+		<li class="flex-shrink-0"><a href="{segment || 'home'}" class="hover:opacity-75">{segmentData[segment] || "ホーム"}</a></li>
 		<!-- TODO: 他のsapperの機能で実装できるか探す -->
 		{#if $blogTitle && $page.params !== {}}
 			<li class="flex items-center truncate"><i class="fas fa-chevron-left mx-2"></i><span class="truncate">{$blogTitle}</span></li>

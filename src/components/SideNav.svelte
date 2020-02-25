@@ -1,12 +1,25 @@
 <script>
+  import { onMount } from 'svelte'
   import * as sapper from '@sapper/app'
+  import microApi from '../api/index';
 
+  let titleData = [];
   let search = "";
+
+  function getPost() {
+    microApi.get(encodeURI('blog?fields=title,id&limit=3')).then(res => {
+      titleData = res.data.contents
+    })
+  }
 
   function handleSubmit() {
     if (!search) return
     sapper.goto(`/blog?filters=${search}`);
   }
+
+  onMount(() => {
+    getPost()
+  })
 </script>
 
 <div class="sticky top-2 hidden md:block">
@@ -31,7 +44,7 @@
       </form>
     </div>
   </div>
-  <div class="mb-4 text-sm">
+  <!-- <div class="mb-4 text-sm">
     <div class="w-full rounded bg-gray-200 p-2 mb-2">
       カテゴリー
     </div>
@@ -40,15 +53,15 @@
       <li class="border-b"><a href="." class="block p-2 transition duration-500 hover:opacity-50">カテゴリー2</a></li>
       <li class="border-b"><a href="." class="block p-2 transition duration-500 hover:opacity-50">カテゴリー3</a></li>
     </ul>
-  </div>
+  </div> -->
   <div class="mb-4 text-sm">
     <div class="w-full rounded bg-gray-200 p-2 mb-2">
       最新記事
     </div>
     <ul class="">
-      <li class="border-b"><a href="." class="block p-2 transition duration-500 hover:opacity-50">最新記事1</a></li>
-      <li class="border-b"><a href="." class="block p-2 transition duration-500 hover:opacity-50">最新記事2</a></li>
-      <li class="border-b"><a href="." class="block p-2 transition duration-500 hover:opacity-50">最新記事3</a></li>
+      {#each titleData as data}
+        <li class="border-b"><a href={`blog/${data.id}`} class="block p-2 transition duration-500 hover:opacity-50">{data.title}</a></li>
+      {/each}
     </ul>
   </div>
 </div>
