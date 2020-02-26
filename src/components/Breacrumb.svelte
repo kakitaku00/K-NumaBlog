@@ -27,6 +27,7 @@
 
 	function handleBorderStyle(entries) {
 		const breacrumb = document.querySelector('.breacrumb')
+		if (!breacrumb) return
 		entries.forEach(entry => {
 			if (entry.isIntersecting) {
 				breacrumb.classList.remove('breacrumb-border')

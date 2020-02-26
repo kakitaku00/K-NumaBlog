@@ -35,20 +35,26 @@
 </style>
 
 <Nav {segment}/>
-
 	<main class="p-2 md:p-6 mx-auto flex relative bg-white">
 		{#if $preloading}
 			<Loading />
-		{:else}
-		<div class="w-full md:w-3/4 relative">
-			<Breacrumb {segment}/>
-			<div class="px-2">
-				<slot></slot>
+		<!-- ブログのみサイドバーを表示 -->
+		{:else if segment === 'blog'}
+			<div class="w-full md:w-3/4 relative">
+				<Breacrumb {segment}/>
+				<div class="px-2">
+					<slot></slot>
+				</div>
 			</div>
-		</div>
-		<div class="hidden md:block w-1/4 pl-8">
-			<SideNav />
-		</div>
+			<div class="hidden md:block w-1/4 pl-8">
+				<SideNav />
+			</div>
+		{:else}
+			<div class="w-full relative">
+				<div class="px-2">
+					<slot></slot>
+				</div>
+			</div>
 		{/if}
 	</main>
 
