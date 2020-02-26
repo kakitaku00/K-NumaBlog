@@ -15,8 +15,6 @@
 	export let segment;
 	let pageLoad = false;
 
-	console.log(preloading)
-
 	function pageLoading() {
 		if ($preloading) {
 			setTimeout(() => {
@@ -28,11 +26,9 @@
 	}
 
 	function topLoading() {
-		if ($topPageLoading) {
-			setTimeout(() => {
-				$topPageLoading = false
-			}, 3000);
-		}
+		setTimeout(() => {
+			topPageLoading.set(false)
+		}, 3500);
 	}
 
 	onMount(() => {
@@ -49,10 +45,10 @@
 
 <Nav {segment}/>
 
-	<main class="p-2 md:p-6 mx-auto flex relative bg-white">
-		{#if pageLoad}
-			<Loading />
-		{:else}
+<main class="p-2 md:p-6 mx-auto flex relative bg-white">
+	{#if pageLoad}
+		<Loading />
+	{:else}
 		<div class="w-full md:w-3/4 relative">
 			<Breacrumb {segment}/>
 			<div class="px-2">
@@ -62,8 +58,8 @@
 		<div class="hidden md:block w-1/4 pl-8">
 			<SideNav />
 		</div>
-		{/if}
-	</main>
+	{/if}
+</main>
 
 <Footer />
 {#if $topPageLoading}
