@@ -3,19 +3,23 @@
 </script>
 
 <style>
+.title {
+  transform: translateY(100%)
+}
+
 .title-1 {
   display: inline-block;
-  animation: t-load 0.8s ease 0s 1 normal;
+  animation: t-load 0.8s ease 0.5s 1 forwards;
 }
 
 .title-2 {
   display: inline-block;
-  animation: t-load 1.4s ease 0s 1 normal;
+  animation: t-load 1.4s ease 0.5s 1 forwards;
 }
 
 .title-3 {
   display: inline-block;
-  animation: t-load 1.1s ease 0s 1 normal;
+  animation: t-load 1.1s ease 0.5s 1 forwards;
 }
 
 .s-title::before,
@@ -30,11 +34,11 @@
 
 .s-title::before {
   transform: translateX(0);
-  animation: s-title-load-left 0.8s ease 1.2s 1 forwards;
+  animation: s-title-load-left 0.8s ease 1.7s 1 forwards;
 }
 .s-title::after {
   transform: translateX(-100%);
-  animation: s-title-load-right 0.8s ease 1.2s 1 forwards;
+  animation: s-title-load-right 0.8s ease 1.7s 1 forwards;
 }
 
 @keyframes t-load {
