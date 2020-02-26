@@ -28,7 +28,7 @@
 <style>
 	main {
 		max-width: 1200px;
-		min-height: 600px;
+		min-height: 300px;
 	}
 </style>
 

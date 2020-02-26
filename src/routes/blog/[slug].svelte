@@ -106,8 +106,8 @@
 </svelte:head>
 
 <div class="content">
-	<header class="mb-8">
-		<h1 class="text-3xl">{post.title}</h1>
+	<header class="md-4 md:mb-8">
+		<h1 class="text-xl md:text-3xl">{post.title}</h1>
 	</header>
 	<div class="mb-4">
 		<h2>目次</h2>
