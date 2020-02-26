@@ -15,11 +15,9 @@
 	export let segment;
 
 	function topLoading() {
-		if ($topPageLoading) {
-			setTimeout(() => {
-				$topPageLoading = false
-			}, 3000);
-		}
+		setTimeout(() => {
+			topPageLoading.set(false)
+		}, 3500);
 	}
 
 	onMount(() => {
@@ -57,7 +55,6 @@
 			</div>
 		{/if}
 	</main>
-
 <Footer />
 {#if $topPageLoading}
 	<TopLoadingTitle />
