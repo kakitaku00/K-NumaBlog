@@ -28,28 +28,33 @@
 <style>
 	main {
 		max-width: 1200px;
-		min-height: 600px;
+		min-height: 300px;
 	}
 </style>
 
 <Nav {segment}/>
-
-<main class="p-2 md:p-6 mx-auto flex relative bg-white">
-	{#if $preloading}
-		<Loading />
-	{:else}
-		<div class="w-full md:w-3/4 relative">
-			<Breacrumb {segment}/>
-			<div class="px-2">
-				<slot></slot>
+	<main class="p-2 md:p-6 mx-auto flex relative bg-white">
+		{#if $preloading}
+			<Loading />
+		<!-- ブログのみサイドバーを表示 -->
+		{:else if segment === 'blog'}
+			<div class="w-full md:w-3/4 relative">
+				<Breacrumb {segment}/>
+				<div class="px-2">
+					<slot></slot>
+				</div>
 			</div>
-		</div>
-		<div class="hidden md:block w-1/4 pl-8">
-			<SideNav />
-		</div>
-	{/if}
-</main>
-
+			<div class="hidden md:block w-1/4 pl-8">
+				<SideNav />
+			</div>
+		{:else}
+			<div class="w-full relative">
+				<div class="px-2">
+					<slot></slot>
+				</div>
+			</div>
+		{/if}
+	</main>
 <Footer />
 {#if $topPageLoading}
 	<TopLoadingTitle />
