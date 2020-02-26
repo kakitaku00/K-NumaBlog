@@ -73,7 +73,7 @@
 	<title>K-NumaTech お問い合わせ</title>
 </svelte:head>
 
-<div class="mb-8">
+<div class="py-2 mb-2">
   {#if thanks}
     <p>お問い合わせありがとうございました。</p>
   {:else}
@@ -81,7 +81,7 @@
   {/if}
 </div>
 {#if !thanks}
-  <div class="bg-white my-4 shadow p-4 md:p-8 rounded">
+  <div class="bg-white shadow p-4 md:p-8 rounded">
     <div class="mb-4">
       <label class="block">
         <span class="block text-gray-700 mb-2"><i class="fas fa-asterisk text-xs mr-1 text-red-500"></i>お名前{#if contactData.name.isError}<span class="inline-block ml-2 text-sm text-red-500">{contactData.name.errorText}</span>{/if}</span>
