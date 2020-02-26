@@ -105,7 +105,7 @@
 	<title>{post.title}</title>
 </svelte:head>
 
-<div class="content" in:fade>
+<div class="content">
 	<header class="mb-8">
 		<h1 class="text-3xl">{post.title}</h1>
 	</header>
