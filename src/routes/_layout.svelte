@@ -1,6 +1,4 @@
 <script>
-	import { onMount } from 'svelte';
-
 	import Nav from '../components/Nav.svelte';
 	import SideNav from '../components/SideNav.svelte';
 	import Footer from '../components/Footer.svelte';
@@ -13,16 +11,6 @@
 	let { preloading } = stores();
 
 	export let segment;
-
-	function topLoading() {
-		setTimeout(() => {
-			topPageLoading.set(false)
-		}, 3500);
-	}
-
-	onMount(() => {
-		topLoading()
-	})
 </script>
 
 <style>
@@ -33,29 +21,28 @@
 </style>
 
 <Nav {segment}/>
-	<main class="p-2 md:p-6 mx-auto flex relative bg-white">
-		{#if $preloading}
-			<Loading />
-		<!-- ブログのみサイドバーを表示 -->
-		{:else if segment === 'blog'}
-			<div class="w-full md:w-3/4 relative">
-				<Breacrumb {segment}/>
-				<div class="px-2">
-					<slot></slot>
-				</div>
+<main class="p-2 md:p-6 mx-auto flex relative bg-white">
+	<Loading loading={$preloading} />
+	<!-- ブログのみサイドバーを表示 -->
+	{#if segment === 'blog'}
+		<div class="w-full md:w-3/4 relative">
+			<Breacrumb {segment}/>
+			<div class="p-2">
+				<slot></slot>
 			</div>
-			<div class="hidden md:block w-1/4 pl-8">
-				<SideNav />
+		</div>
+		<div class="hidden md:block w-1/4 pl-8">
+			<SideNav />
+		</div>
+	{:else}
+		<div class="w-full relative">
+			<div class="px-2">
+				<slot></slot>
 			</div>
-		{:else}
-			<div class="w-full relative">
-				<div class="px-2">
-					<slot></slot>
-				</div>
-			</div>
-		{/if}
-	</main>
+		</div>
+	{/if}
+</main>
 <Footer />
-{#if $topPageLoading}
-	<TopLoadingTitle />
-{/if}
+
+<!-- Loading -->
+<TopLoadingTitle />

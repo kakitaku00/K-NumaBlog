@@ -57,7 +57,7 @@
 </nav>
 <!-- SP MENU -->
 {#if spMenu}
-  <div in:fade class="overlay fixed top-0 left-0 w-full h-screen bg-white-alpha z-20 backdrop-blur">
+  <div in:fade out:fade = {{duration: 100}} class="overlay fixed top-0 left-0 w-full h-screen bg-white-alpha z-30 backdrop-blur">
     <div class="block">
       <button on:click={() => spMenu = false} class="flex items-center px-3 py-2 border rounded absolute top-4 right-4">
         <i class="fas fa-times"></i>
