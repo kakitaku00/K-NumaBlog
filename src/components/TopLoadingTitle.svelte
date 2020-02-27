@@ -1,5 +1,18 @@
 <script>
+  import { onMount } from 'svelte';
   import { fade } from 'svelte/transition';
+  import { topPageLoading } from '../stores/topPageLoading'
+
+	function topLoading() {
+		console.log('loading')
+		setTimeout(() => {
+			topPageLoading.set(false)
+		}, 3500);
+	}
+
+	onMount(() => {
+		topLoading()
+	})
 </script>
 
 <style>
@@ -34,11 +47,11 @@
 
 .s-title::before {
   transform: translateX(0);
-  animation: s-title-load-left 0.8s ease 1.7s 1 forwards;
+  animation: st-load-left 0.8s ease 1.7s 1 forwards;
 }
 .s-title::after {
   transform: translateX(-100%);
-  animation: s-title-load-right 0.8s ease 1.7s 1 forwards;
+  animation: st-load-right 0.8s ease 1.7s 1 forwards;
 }
 
 @keyframes t-load {
@@ -52,7 +65,7 @@
   }
 }
 
-@keyframes s-title-load-left {
+@keyframes st-load-left {
   0% {
     transform: translateX(0);
   }
@@ -61,7 +74,7 @@
   }
 }
 
-@keyframes s-title-load-right {
+@keyframes st-load-right {
   0% {
     transform: translateX(-100%);
   }
@@ -71,16 +84,18 @@
 }
 </style>
 
-<div out:fade class="w-screen h-screen bg-white fixed top-0 left-0 z-50">
-  <div class="inline-block absolute inset-0 m-auto text-center w-64 h-16">
-    <div class="text-xl font-bold tracking-widest overflow-hidden">
-      <span class="title title-1 inline-block">K</span
-      ><span class="title title-2 inline-block">-</span
-      ><span class="title title-3 inline-block">Numa</span
-      ><span class="title title-1 inline-block">Tech</span>
-    </div>
-    <div class="mt-2 overflow-hidden">
-      <span class="s-title inine-block relative">created by Takumi Kakinuma</span>
+{#if $topPageLoading}
+  <div out:fade class="w-screen h-screen bg-white fixed top-0 left-0 z-50">
+    <div class="inline-block absolute inset-0 m-auto text-center w-64 h-16">
+      <div class="text-xl font-bold tracking-widest overflow-hidden">
+        <span class="title title-1 inline-block">K</span
+        ><span class="title title-2 inline-block">-</span
+        ><span class="title title-3 inline-block">Numa</span
+        ><span class="title title-1 inline-block">Tech</span>
+      </div>
+      <div class="mt-2 overflow-hidden">
+        <span class="s-title inine-block relative">created by Takumi Kakinuma</span>
+      </div>
     </div>
   </div>
-</div>
+{/if}
