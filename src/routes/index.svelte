@@ -5,7 +5,7 @@
 <svelte:head>
 	<title>K-NumaTech HOME</title>
   <meta property="og:url" content='https://www.k-numa.info/' />
-  <meta property="og:type" content='site' />
+  <meta property="og:type" content='website' />
   <meta property="og:title" content='K-NumaTech' />
   <meta property="og:description" content='K-NumaTech Portfolio' />
   <meta property="og:site_name" content='K-NumaTech' />
