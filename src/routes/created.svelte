@@ -6,4 +6,4 @@
 	<title>K-NumaTech 製作</title>
 </svelte:head>
 
-<p>Comming Soon ...</p>
+<p class="py-4">Comming Soon ...</p>
