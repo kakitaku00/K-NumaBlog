@@ -9,7 +9,7 @@
 		ogp.title = data.title
 		ogp.description = data.body.substr(0, 100) + '...';
 		ogp.site_name = 'K-NumaTech'
-		ogp.image = data.cover_image
+		ogp.image = data.cover_image.url
 		if (res.status === 200) {
 			return { post: data, ogp };
 		} else {
