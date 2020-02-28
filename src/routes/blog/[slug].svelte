@@ -1,20 +1,17 @@
 <script context="module">
 	import microApi from '../../api/index';
-	export async function preload({ params, query }) {
-		// the `slug` parameter is available because
-		// // this file is called [slug].svelte
-		// const res = await microApi.get(`blog/${params.slug}`).then(res => res);
-		// const data = await res.data;
-		// if (res.status === 200) {
-		// 	return { post: data };
-		// } else {
-		// 	this.error(res.status, data.message);
-		// }
-		// this file is called [slug].svelte
+	export async function preload({ host, path, params, query }) {
 		const res = await microApi.get(`blog/${params.slug}`).then(res => res);
 		const data = await res.data;
+		let ogp = {};
+		ogp.url = 'https://' + host + path
+		ogp.type = 'article'
+		ogp.title = data.title
+		ogp.description = data.body.substr(0, 100) + '...';
+		ogp.site_name = 'K-NumaTech'
+		ogp.image = data.image
 		if (res.status === 200) {
-			return { post: data };
+			return { post: data, ogp };
 		} else {
 			this.error(res.status, data.message);
 		}
@@ -32,6 +29,7 @@
 	import { blogTitle } from '../../stores/breacrumb'
 
 	export let post;
+	export let ogp;
 	blogTitle.set(post.title)
 
 	let contents = "";
@@ -103,6 +101,12 @@
 
 <svelte:head>
 	<title>{post.title}</title>
+  <meta property="og:url" content={ogp.url} />
+  <meta property="og:type" content={ogp.type} />
+  <meta property="og:title" content={ogp.title} />
+  <meta property="og:description" content={ogp.description} />
+  <meta property="og:site_name" content={ogp.site_name} />
+  <meta property="og:image" content={ogp.image} />
 </svelte:head>
 
 <div class="content">
