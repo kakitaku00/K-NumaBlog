@@ -1,13 +1,15 @@
 <script>
   import { onMount } from 'svelte';
   import { fade } from 'svelte/transition';
-  import { topPageLoading } from '../stores/topPageLoading'
+  import { topPageLoading } from '../stores/topPageLoading';
 
 	function topLoading() {
-		console.log('loading')
 		setTimeout(() => {
-			topPageLoading.set(false)
-		}, 3500);
+			topPageLoading.loading()
+      setTimeout(() => {
+        topPageLoading.done()
+      }, 3500)
+		}, 1000);
 	}
 
 	onMount(() => {
@@ -83,19 +85,22 @@
   }
 }
 </style>
-
-{#if $topPageLoading}
+{#if $topPageLoading !== 'done'}
   <div out:fade class="w-screen h-screen bg-white fixed top-0 left-0 z-50">
     <div class="inline-block absolute inset-0 m-auto text-center w-64 h-16">
-      <div class="text-xl font-bold tracking-widest overflow-hidden">
-        <span class="title title-1 inline-block">K</span
-        ><span class="title title-2 inline-block">-</span
-        ><span class="title title-3 inline-block">Numa</span
-        ><span class="title title-1 inline-block">Tech</span>
-      </div>
-      <div class="mt-2 overflow-hidden">
-        <span class="s-title inine-block relative">created by Takumi Kakinuma</span>
-      </div>
+      {#if $topPageLoading === "start"}
+        <p class="tracking-widest">... Loading</p>
+      {:else if  $topPageLoading === "loading"}
+        <div class="text-xl font-bold tracking-widest overflow-hidden">
+          <span class="title title-1 inline-block">K</span
+          ><span class="title title-2 inline-block">-</span
+          ><span class="title title-3 inline-block">Numa</span
+          ><span class="title title-1 inline-block">Tech</span>
+        </div>
+        <div class="mt-2 overflow-hidden">
+          <span class="s-title inine-block relative">created by Takumi Kakinuma</span>
+        </div>
+      {/if}
     </div>
   </div>
 {/if}

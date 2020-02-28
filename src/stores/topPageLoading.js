@@ -1,5 +1,13 @@
 import { writable } from 'svelte/store';
 
-const topPageLoading = writable(true);
+function loading() {
+  const { subscribe, set } = writable('start');
 
-export { topPageLoading }
+  return {
+		subscribe,
+		loading: () => set('loading'),
+		done: () => set('done')
+	};
+}
+
+export const topPageLoading = loading();
