@@ -6,8 +6,8 @@
 	<title>K-NumaTech HOME</title>
   <meta property="og:url" content='https://www.k-numa.info/' />
   <meta property="og:type" content='website' />
-  <meta property="og:title" content='K-NumaTech' />
-  <meta property="og:description" content='K-NumaTech Portfolio' />
+  <meta property="og:title" content='K-NumaTech Portfolio' />
+  <meta property="og:description" content='Takumi Kakinumaのポートフォリオサイト' />
   <meta property="og:site_name" content='K-NumaTech' />
   <meta property="og:image" content='https://images.microcms-assets.io/protected/ap-northeast-1:f18fa8ff-5b5f-43d2-ac15-ec07384ec391/service/kakki-blog/media/template.jpg' />
 </svelte:head>
