@@ -104,7 +104,7 @@
   <meta property="og:url" content={ogp.url} />
   <meta property="og:type" content={ogp.type} />
   <meta property="og:title" content={ogp.title} />
-  <meta property="og:description" content={ogp.description} />
+  <meta property="og:description" content={ogp.description.replace(/\n/g, '')} />
   <meta property="og:site_name" content={ogp.site_name} />
   <meta property="og:image" content={ogp.image} />
 </svelte:head>
