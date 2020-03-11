@@ -3,6 +3,8 @@
   import { fade } from 'svelte/transition';
   import { topPageLoading } from '../stores/topPageLoading';
 
+  let hostname;
+
 	function topLoading() {
 		setTimeout(() => {
 			topPageLoading.loading()
@@ -14,6 +16,8 @@
 
 	onMount(() => {
 		topLoading()
+    // 開発中はローディングを表示させない
+    hostname = document.location.hostnamea;
 	})
 </script>
 
@@ -85,7 +89,9 @@
   }
 }
 </style>
-{#if $topPageLoading !== 'done'}
+<!-- 開発中はローディングを表示させない -->
+{#if $topPageLoading !== 'done' && hostname === 'localhost'}
+<!-- {#if $topPageLoading !== 'done'} -->
   <div out:fade class="w-screen h-screen bg-white fixed top-0 left-0 z-50">
     <div class="inline-block absolute inset-0 m-auto text-center w-64 h-16">
       {#if $topPageLoading === "start"}

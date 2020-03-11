@@ -27,8 +27,12 @@
     <div class="w-full rounded bg-gray-200 p-2 mb-2">
       プロフィール
     </div>
-    <div class="p-2">
-      プロフィール内容
+    <div class="px-2">
+      <div class="mb-2"><img class="w-24 mx-auto rounded-full" src="https://avatars0.githubusercontent.com/u/36177545?s=460&v=4" alt="profile image"></div>
+      <div class="mb-2 text-center">
+        <p class="text-sm">Takumi Kakinuma</p>
+        <p class="text-xs text-gray-600">Front end engineer</p>
+      </div>
     </div>
   </div>
   <div class="mb-4 text-sm">
