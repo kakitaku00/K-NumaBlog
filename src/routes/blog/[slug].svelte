@@ -105,9 +105,9 @@
 	<title>{post.title}</title>
 </svelte:head>
 
-<div class="content" in:fade>
-	<header class="mb-8">
-		<h1 class="text-3xl">{post.title}</h1>
+<div class="content">
+	<header class="mb-4 md:mb-8">
+		<h1 class="text-xl md:text-3xl">{post.title}</h1>
 	</header>
 	<div class="mb-4">
 		<h2>目次</h2>

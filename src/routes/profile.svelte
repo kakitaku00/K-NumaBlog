@@ -6,6 +6,4 @@
 	<title>K-NumaTech プロフィール</title>
 </svelte:head>
 
-<div in:fade>
-	<p>Comming Soon ...</p>
-</div>
+<p class="py-4">Comming Soon ...</p>

@@ -27,11 +27,12 @@
 
 	function handleBorderStyle(entries) {
 		const breacrumb = document.querySelector('.breacrumb')
+		if (!breacrumb) return
 		entries.forEach(entry => {
-			if (entry.isIntersecting) {
-				breacrumb.classList.remove('breacrumb-border')
+			if (entry.isIntersecting || entry.rootBounds.width > 767) {
+				breacrumb.classList.remove('shadow', 'fixed', 'px-4')
 			} else {
-				breacrumb.classList.add('breacrumb-border')
+				breacrumb.classList.add('shadow', 'fixed', 'px-4')
 			}
 		});
 	}
@@ -41,17 +42,7 @@
 	})
 </script>
 
-<style>
-:global(::before) {
-	border-color: #333;
-}
-
-:global(.breacrumb-border)  {
-	border-bottom: 1px solid #eaecef;
-}
-</style>
-
-<div class="breacrumb p-2 sticky top-0 bg-white z-10">
+<div class="breacrumb w-full p-2 top-0 left-0 bg-white z-10">
 	<ul class="text-xs flex items-center">
 		<li class="flex-shrink-0"><a href="{segment || 'home'}" class="hover:opacity-75">{segmentData[segment] || "ホーム"}</a></li>
 		<!-- TODO: 他のsapperの機能で実装できるか探す -->
