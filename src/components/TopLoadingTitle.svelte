@@ -85,7 +85,7 @@
   }
 }
 </style>
-{#if $topPageLoading !== 'done'}
+{#if $topPageLoading !== 'done' && process.env.NODE_ENV !== 'development'}
   <div out:fade class="w-screen h-screen bg-white fixed top-0 left-0 z-50">
     <div class="inline-block absolute inset-0 m-auto text-center w-64 h-16">
       {#if $topPageLoading === "start"}

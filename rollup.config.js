@@ -13,7 +13,8 @@ dotenv.config()
 
 const env = {
 	X_BLOG_API_KEY: process.env.X_BLOG_API_KEY,
-	X_CONTACT_WRITE_API_KEY: process.env.X_CONTACT_WRITE_API_KEY
+	X_CONTACT_WRITE_API_KEY: process.env.X_CONTACT_WRITE_API_KEY,
+	X_CREATED_API_KEY: process.env.X_CREATED_API_KEY
 }
 
 const valuesEnvToReplace = () => {
